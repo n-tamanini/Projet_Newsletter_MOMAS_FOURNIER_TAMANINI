@@ -15,7 +15,7 @@ private lateinit var listViewMembers: ListView
 private lateinit var listViewLibraries: ListView
 private lateinit var listViewFeatures: ListView
 
-class AboutUsFragment: Fragment() {
+class AboutUsFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -71,5 +71,5 @@ class AboutUsFragment: Fragment() {
         listViewFeatures.adapter = featuresAdapter
 
         return view
-        }
+    }
 }
