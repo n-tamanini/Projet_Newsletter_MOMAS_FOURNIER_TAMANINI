@@ -12,6 +12,8 @@ import estia.eh.mbds.newsletter.R
 
 
 private lateinit var listViewMembers: ListView
+private lateinit var listViewLibraries: ListView
+private lateinit var listViewFeatures: ListView
 
 class AboutUsFragment: Fragment() {
 
@@ -26,26 +28,47 @@ class AboutUsFragment: Fragment() {
             it.updateTitle(R.string.about_us_toolbar_name)
         }
 
-        listViewMembers = view.findViewById(R.id.list_view_members)
-
         val memberList: MutableList<String> = ArrayList()
         memberList.add("Lisa MOMAS")
         memberList.add("Alphonse FOURNIER")
         memberList.add("Nicolas TAMANINI")
 
+        val librariesList: MutableList<String> = ArrayList()
+        librariesList.add("À compléter")
+
+        val featuresList: MutableList<String> = ArrayList()
+        featuresList.add("À compléter")
+
+
+        listViewMembers = view.findViewById(R.id.list_view_members)
         val membersAdapter = activity?.let {
             ArrayAdapter<String>(
                     it,
-                    android.R.layout.simple_spinner_item,
+                    android.R.layout.simple_list_item_1,
                     memberList
             )
         }
-
-        membersAdapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         listViewMembers.adapter = membersAdapter
 
+        listViewLibraries = view.findViewById(R.id.list_view_libraries)
+        val librariesAdapter = activity?.let {
+            ArrayAdapter<String>(
+                    it,
+                    android.R.layout.simple_list_item_1,
+                    librariesList
+            )
+        }
+        listViewLibraries.adapter = librariesAdapter
 
-
+        listViewFeatures = view.findViewById(R.id.list_view_features)
+        val featuresAdapter = activity?.let {
+            ArrayAdapter<String>(
+                    it,
+                    android.R.layout.simple_list_item_1,
+                    featuresList
+            )
+        }
+        listViewFeatures.adapter = featuresAdapter
 
         return view
         }

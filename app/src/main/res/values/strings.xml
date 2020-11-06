@@ -3,4 +3,7 @@
     <string name="members">Membres du groupe</string>
     <string name="about_us_toolbar_name">À propos de nous</string>
     <string name="repo_link">Repo du projet</string>
+    <string name="github_link">https://github.com/n-tamanini/Projet_Newsletter_MOMAS_FOURNIER_TAMANINI</string>
+    <string name="external_libraries">Librairies externes</string>
+    <string name="features">Fonctionnalités implémentées</string>
 </resources>

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/title_members"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/members"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="25dp"
         android:textColor="@color/white"
         android:textSize="20dp"
@@ -24,13 +29,12 @@
     <ListView
         android:id="@+id/list_view_members"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@id/title_members"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:divider="@null" />
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
+        android:divider="@null"/>
 
     <TextView
+        android:id="@+id/repo_link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/repo_link"
@@ -43,5 +47,52 @@
         android:padding="5dp"
         android:background="@color/design_default_color_primary" />
 
+    <TextView
+        android:id="@+id/github_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/github_link"
+        android:autoLink="web"
+        android:layout_margin="20dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/external_libraries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/external_libraries"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:background="@color/design_default_color_primary" />
+
+    <ListView
+        android:id="@+id/list_view_libraries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:divider="@null" />
+
+    <TextView
+        android:id="@+id/features"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/features"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:background="@color/design_default_color_primary" />
+
+    <ListView
+        android:id="@+id/list_view_features"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:divider="@null" />
+
+</LinearLayout>
+
+</ScrollView>
