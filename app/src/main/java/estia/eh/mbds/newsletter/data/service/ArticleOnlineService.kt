@@ -65,7 +65,7 @@ class ArticleOnlineService : ArticleService {
     }
 
     override fun getArticles(): List<Article> {
-        return service.listTopHeadline("us").execute().body() ?: listOf()
+        return service.listTopHeadline("fr").execute().body()?.articles ?: listOf()
     }
 
     companion object {

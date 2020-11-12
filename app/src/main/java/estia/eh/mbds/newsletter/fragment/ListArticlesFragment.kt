@@ -66,8 +66,6 @@ class ListArticlesFragment : Fragment()  {
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            //créer l'adapter
-            //associer l'adapteur au recyclerview
             val adapter = ListArticlesAdapter(articles)
             recyclerView.adapter = adapter
         }
