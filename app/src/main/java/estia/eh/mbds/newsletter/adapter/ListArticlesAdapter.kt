@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -25,11 +24,11 @@ class ListArticlesAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article: Article = mArticles[position]
-        // Display Article Title
+
         holder.mArticleTitle.text = article.title
 
         val context : Context = holder.mArticleUrlToImage.context
-        // Display Neighbour Avatar
+
         Glide.with(context)
                 .load(article.urlToImage)
                 .apply(RequestOptions.circleCropTransform())
