@@ -28,9 +28,9 @@
         android:maxWidth="250dp"
         android:maxLines="1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_urlToImage"
+        app:layout_constraintStart_toEndOf="@+id/item_list_urlToImage"
+        app:layout_constraintTop_toTopOf="@+id/item_list_urlToImage"/>
 
 
     <TextView
@@ -41,9 +41,9 @@
         android:maxWidth="250dp"
         android:maxLines="1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_author"
+        app:layout_constraintStart_toEndOf="@+id/item_list_author"
+        app:layout_constraintTop_toTopOf="@+id/item_list_author"/>
 
 
     <TextView
@@ -54,9 +54,9 @@
         android:maxWidth="250dp"
         android:maxLines="1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_title"
+        app:layout_constraintStart_toEndOf="@+id/item_list_title"
+        app:layout_constraintTop_toTopOf="@+id/item_list_title"/>
 
 
     <TextView
@@ -67,9 +67,9 @@
         android:maxWidth="250dp"
         android:maxLines="1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_description"
+        app:layout_constraintStart_toEndOf="@+id/item_list_description"
+        app:layout_constraintTop_toTopOf="@+id/item_list_description"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
