@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import estia.eh.mbds.newsletter.fragment.AboutUsFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
-import estia.eh.mbds.newsletter.models.NavigationListener
 
 private lateinit var toolbar: Toolbar
 

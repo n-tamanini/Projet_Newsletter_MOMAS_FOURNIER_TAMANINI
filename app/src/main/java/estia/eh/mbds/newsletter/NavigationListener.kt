@@ -1,4 +1,4 @@
-package estia.eh.mbds.newsletter.models
+package estia.eh.mbds.newsletter
 
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
