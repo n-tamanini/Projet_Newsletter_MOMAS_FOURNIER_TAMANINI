@@ -14,12 +14,16 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        changeFragment(ListArticlesFragment())
 
         showFragment(ListArticlesFragment())
     }
-
+    private fun changeFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
+        }.commit()
+    }
     override fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
