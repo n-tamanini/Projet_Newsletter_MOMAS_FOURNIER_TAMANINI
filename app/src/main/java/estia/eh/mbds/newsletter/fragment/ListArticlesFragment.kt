@@ -9,7 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.adapter.ListArticlesAdapter
 import estia.eh.mbds.newsletter.data.ArticleRepository
