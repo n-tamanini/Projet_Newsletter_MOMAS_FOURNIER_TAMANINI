@@ -24,11 +24,11 @@ class ListArticlesAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article: Article = mArticles[position]
-        // Display Article Title
+
         holder.mArticleTitle.text = article.title
 
         val context : Context = holder.mArticleUrlToImage.context
-        // Display Neighbour Avatar
+
         Glide.with(context)
                 .load(article.urlToImage)
                 .apply(RequestOptions.circleCropTransform())

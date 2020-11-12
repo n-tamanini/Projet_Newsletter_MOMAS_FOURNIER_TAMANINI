@@ -9,6 +9,7 @@ import android.widget.ListView
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
+import estia.eh.mbds.newsletter.NavigationListener
 
 class AboutUsFragment : Fragment() {
     private lateinit var listViewMembers: ListView
