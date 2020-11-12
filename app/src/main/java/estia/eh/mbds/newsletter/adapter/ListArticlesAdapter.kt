@@ -26,12 +26,13 @@ class ListArticlesAdapter (
         val article: Article = mArticles[position]
 
         holder.mArticleTitle.text = article.title
+        holder.mArticleDescription.text = article.description
 
         val context : Context = holder.mArticleUrlToImage.context
 
         Glide.with(context)
                 .load(article.urlToImage)
-                .apply(RequestOptions.circleCropTransform())
+                .apply(RequestOptions.fitCenterTransform())
                 .placeholder(R.drawable.ic_baseline_filter_hdr_24)
                 .error(R.drawable.ic_baseline_filter_hdr_24)
                 .skipMemoryCache(false)
