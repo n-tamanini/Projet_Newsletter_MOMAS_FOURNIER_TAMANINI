@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
 
 
