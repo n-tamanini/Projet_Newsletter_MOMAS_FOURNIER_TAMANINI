@@ -13,8 +13,11 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        changeFragment(ListArticlesFragment())
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
+
+        changeFragment(ListArticlesFragment())
         showFragment(ListArticlesFragment())
     }
     private fun changeFragment(fragment: Fragment) {
