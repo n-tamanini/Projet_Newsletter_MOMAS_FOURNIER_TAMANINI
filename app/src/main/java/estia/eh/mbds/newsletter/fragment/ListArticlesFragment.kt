@@ -49,14 +49,13 @@ class ListArticlesFragment : Fragment()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val articlesTest = getArticles()
-
-
+        getArticles()
     }
 
     private fun getArticles() {
         lifecycleScope.launch(Dispatchers.IO) {
             val articles = ArticleRepository.getInstance().getArticles()
+            bindData(articles)
         }
     }
 
