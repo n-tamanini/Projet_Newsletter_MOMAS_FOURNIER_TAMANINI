@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.R
+import estia.eh.mbds.newsletter.NavigationListener
 
 
 private lateinit var listViewMembers: ListView
