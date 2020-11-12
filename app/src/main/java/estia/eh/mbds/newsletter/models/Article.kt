@@ -1,7 +1,5 @@
 package estia.eh.mbds.newsletter.models
 
-import javax.xml.transform.Source
-
 data class Article(
     val source: Source,
     val author: String,
