@@ -6,7 +6,6 @@ import estia.eh.mbds.newsletter.models.Article
 
 class ArticleRepository {
     private val articleService: ArticleService
-
     init{
         articleService = ArticleOnlineService()
     }

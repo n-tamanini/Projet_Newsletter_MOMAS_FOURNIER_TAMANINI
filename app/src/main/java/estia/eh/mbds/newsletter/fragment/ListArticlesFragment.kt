@@ -70,10 +70,4 @@ class ListArticlesFragment : Fragment()  {
         }
     }
 
-
-
-
-
-
-
 }
