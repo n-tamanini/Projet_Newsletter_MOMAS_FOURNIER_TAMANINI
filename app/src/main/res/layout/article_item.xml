@@ -9,7 +9,6 @@
     android:focusable="true"
     android:orientation="vertical"
     android:padding="8dp">
-
     <LinearLayout
         android:id="@+id/item_list_image_and_fav_btn"
         android:layout_width="100dp"
@@ -18,23 +17,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical">
-
         <ImageView
             android:id="@+id/item_list_urlToImage"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:layout_gravity="top|center_horizontal"/>
-
         <Button
             android:id="@+id/item_list_favorite_button"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/ic_baseline_favorite_empty_24"
             android:layout_gravity="center_vertical|center_horizontal"/>
-
     </LinearLayout>
-
     <TextView
         android:id="@+id/item_list_title"
         android:layout_width="0dp"
@@ -44,7 +39,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/item_list_description"
         android:layout_width="0dp"
@@ -56,7 +50,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
         app:layout_constraintTop_toBottomOf="@+id/item_list_title" />
-
     <TextView
         android:id="@+id/item_list_author"
         android:layout_width="0dp"
@@ -68,7 +61,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
         app:layout_constraintTop_toBottomOf="@+id/item_list_description" />
-
     <TextView
         android:id="@+id/item_list_publishedAt"
         android:layout_width="0dp"
@@ -80,5 +72,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
         app:layout_constraintTop_toBottomOf="@+id/item_list_author" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

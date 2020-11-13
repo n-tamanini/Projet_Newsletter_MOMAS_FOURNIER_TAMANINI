@@ -25,7 +25,7 @@
 
 
     <string-array name="category_arrays">
-        <item>Categories</item>
+        <item>Cat.</item>
         <item>Business</item>
         <item>Spectacle</item>
         <item>Géneral</item>
