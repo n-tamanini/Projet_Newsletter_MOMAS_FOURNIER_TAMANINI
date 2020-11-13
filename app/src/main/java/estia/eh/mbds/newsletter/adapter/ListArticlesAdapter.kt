@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -23,8 +22,8 @@ class ListArticlesAdapter(
 
     private val mArticles: List<Article> = items
 
-    private val DATE_FORMATISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-    private val isoFormat = SimpleDateFormat(DATE_FORMATISO)
+    private val DATE_FORMAT_ISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    private val isoFormat = SimpleDateFormat(DATE_FORMAT_ISO)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -35,19 +34,7 @@ class ListArticlesAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article: Article = mArticles[position]
 
-        holder.mArticleTitle.text = article.title
-        holder.mArticleDescription.text = article.description
-        holder.mArticleAuthor.text = article.author
-
-        val isoDate: Date = isoFormat.parse(article.publishedAt)
-        val date = DateFormat.getDateInstance(DateFormat.LONG).format(isoDate)
-        holder.mArticlePublishedAt.text = date
-
-        holder.mFavoriteButton.setOnClickListener{
-            
-        }
-
-        val context : Context = holder.mArticleUrlToImage.context
+        val context: Context = holder.mArticleUrlToImage.context
         Glide.with(context)
                 .load(article.urlToImage)
                 .apply(RequestOptions.fitCenterTransform())
@@ -55,6 +42,21 @@ class ListArticlesAdapter(
                 .error(R.drawable.ic_baseline_filter_hdr_24)
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
+
+        holder.mArticleTitle.text = article.title
+        holder.mArticleDescription.text = article.description
+        holder.mArticleAuthor.text = article.author
+
+        val isoDate: Date = isoFormat.parse(article.publishedAt)
+        holder.mArticlePublishedAt.text = DateFormat.getDateInstance(DateFormat.LONG).format(isoDate)
+
+/*
+        holder.mFavoriteButton.setOnClickListener{
+            holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
+        }
+*/
+
+
     }
 
     override fun getItemCount(): Int {
@@ -78,7 +80,8 @@ class ListArticlesAdapter(
             mArticleDescription = view.findViewById(R.id.item_list_description)
             mArticlePublishedAt = view.findViewById(R.id.item_list_publishedAt)
             mFavoriteButton = view.findViewById(R.id.item_list_favorite_button)
-
         }
+
+
     }
 }
