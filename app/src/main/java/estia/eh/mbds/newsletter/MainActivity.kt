@@ -1,10 +1,13 @@
 package estia.eh.mbds.newsletter
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
+
 
 private lateinit var toolbar: Toolbar
 
@@ -13,8 +16,9 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
+
 
 
         changeFragment(ListArticlesFragment())
@@ -36,4 +40,14 @@ class MainActivity : AppCompatActivity(), NavigationListener {
     override fun updateTitle(title: Int) {
         toolbar.setTitle(title)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+
+
+
 }

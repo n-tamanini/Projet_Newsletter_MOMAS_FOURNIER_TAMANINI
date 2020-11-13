@@ -7,4 +7,34 @@
     <string name="external_libraries">Librairies externes</string>
     <string name="features">Fonctionnalités implémentées</string>
     <string name="toolbar_name">Liste des articles</string>
+
+
+
+
+    <string-array name="country_arrays">
+        <item>Pays</item>
+        <item>France</item>
+        <item>Chine</item>
+        <item>Etats Unis</item>
+        <item>Angleterre</item>
+        <item>Italie</item>
+        <item>Sri Lanka</item>
+        <item>Australie</item>
+        <item>Inde</item>
+    </string-array>
+
+
+    <string-array name="category_arrays">
+        <item>Categories</item>
+        <item>Business</item>
+        <item>Spectacle</item>
+        <item>Géneral</item>
+        <item>Santé</item>
+        <item>Science</item>
+        <item>Sport</item>
+        <item>Technologie</item>
+        <item>India</item>
+    </string-array>
+
+
 </resources>
