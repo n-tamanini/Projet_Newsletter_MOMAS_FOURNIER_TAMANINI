@@ -1,6 +1,7 @@
 package estia.eh.mbds.newsletter.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import estia.eh.mbds.newsletter.R
+import estia.eh.mbds.newsletter.data.service.ArticleOnlineService
+import estia.eh.mbds.newsletter.fragment.ArticleFragment
 import estia.eh.mbds.newsletter.models.Article
+
 
 class ListArticlesAdapter (
         items: List<Article>
@@ -29,13 +33,20 @@ class ListArticlesAdapter (
 
         val context : Context = holder.mArticleUrlToImage.context
 
-        Glide.with(context)
+        Glide.with(context) //follow lifecycle
                 .load(article.urlToImage)
                 .apply(RequestOptions.circleCropTransform())
                 .placeholder(R.drawable.ic_baseline_filter_hdr_24)
                 .error(R.drawable.ic_baseline_filter_hdr_24)
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
+
+        holder.mArticleTitle.setOnClickListener{
+            val intent = Intent(context, ArticleFragment)
+            intent.putExtra("url", holder.mArticleUrlToImage)
+            context.startActivity(intent)
+        }
+
     }
 
     override fun getItemCount(): Int {
