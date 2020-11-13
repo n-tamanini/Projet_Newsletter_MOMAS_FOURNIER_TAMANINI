@@ -1,71 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="8dp">
 
-
-    <ImageView
-        android:id="@+id/item_list_urlToImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+    <LinearLayout
+        android:id="@+id/item_list_image_and_fav_btn"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_list_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:maxWidth="250dp"
-        android:maxLines="1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
+        <ImageView
+            android:id="@+id/item_list_urlToImage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="top|center_horizontal"/>
 
+        <Button
+            android:id="@+id/item_list_favorite_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_favorite_empty_24"
+            android:layout_gravity="center_vertical|center_horizontal"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/item_list_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:maxWidth="250dp"
-        android:maxLines="1"
+        android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
-
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/item_list_description"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:maxWidth="250dp"
-        android:maxLines="1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
-        app:layout_constraintStart_toEndOf="@+id/item_list_source"
-        app:layout_constraintTop_toTopOf="@+id/item_list_source"/>
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:paddingTop="5dp"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
+        app:layout_constraintTop_toBottomOf="@+id/item_list_title" />
 
+    <TextView
+        android:id="@+id/item_list_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:paddingTop="5dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_list_image_and_fav_btn"
+        app:layout_constraintTop_toBottomOf="@+id/item_list_description" />
 
     <TextView
         android:id="@+id/item_list_publishedAt"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:maxWidth="250dp"
-        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingTop="5dp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/item_list_source"
         app:layout_constraintStart_toEndOf="@+id/item_list_source"

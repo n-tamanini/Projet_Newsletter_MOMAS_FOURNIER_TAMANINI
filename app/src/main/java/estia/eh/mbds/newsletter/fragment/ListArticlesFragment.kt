@@ -43,7 +43,6 @@ class ListArticlesFragment : Fragment()  {
                 DividerItemDecoration.VERTICAL
             )
         )
-
         return view
     }
 
