@@ -7,7 +7,7 @@ import estia.eh.mbds.newsletter.models.Source
 
 @Entity
 data class FavoriteArticle(
-    @PrimaryKey @ColumnInfo(name = "id") val articleId: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val articleId: Int,
     @ColumnInfo(name = "sourceId") val sourceId: String?,
     @ColumnInfo(name = "sourceName") val sourceName: String?,
     @ColumnInfo(name = "author") val author: String?,
