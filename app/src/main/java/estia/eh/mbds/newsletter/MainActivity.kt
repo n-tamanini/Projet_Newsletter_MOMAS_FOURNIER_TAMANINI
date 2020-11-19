@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.fragment.AboutUsFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
+import estia.eh.mbds.newsletter.fragment.ListFavoritesFragment
 
 private lateinit var toolbar: Toolbar
 private lateinit var toolbarOpt: Toolbar

@@ -3,6 +3,7 @@ package estia.eh.mbds.newsletter.fragment
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,13 +13,17 @@ import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.adapter.ListArticlesAdapter
 import estia.eh.mbds.newsletter.data.ArticleRepository
 import estia.eh.mbds.newsletter.models.Article
+import estia.eh.mbds.newsletter.NavigationListener
+import estia.eh.mbds.newsletter.data.database.FavoriteArticle
+import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
+import estia.eh.mbds.newsletter.data.database.OnFavoriteButtonClickListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-class ListArticlesFragment : Fragment()  {
+class ListArticlesFragment : Fragment(), OnFavoriteButtonClickListener {
     private lateinit var recyclerView: RecyclerView
 
+    private lateinit var mFavoriteArticleViewModel: FavoriteArticleViewModel
 
 
     /**
@@ -32,7 +37,7 @@ class ListArticlesFragment : Fragment()  {
         val view = inflater.inflate(R.layout.list_articles_fragment, container, false)
 
         (activity as? NavigationListener)?.let {
-            it.updateTitle(R.string.toolbar_name)
+            it.updateTitle(R.string.toolbar_name_list_articles)
         }
 
         recyclerView = view.findViewById(R.id.articles_list)
@@ -44,8 +49,11 @@ class ListArticlesFragment : Fragment()  {
                 )
         )
 
+        mFavoriteArticleViewModel = ViewModelProvider(this).get(FavoriteArticleViewModel::class.java)
+
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -66,11 +74,13 @@ class ListArticlesFragment : Fragment()  {
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            val adapter = ListArticlesAdapter(articles)
+            val adapter = ListArticlesAdapter(articles, this@ListArticlesFragment)
             recyclerView.adapter = adapter
         }
     }
 
-
+    override fun onFavoriteButtonClick(favoriteArticle: FavoriteArticle) {
+        mFavoriteArticleViewModel.insert(favoriteArticle)
+    }
 
 }
