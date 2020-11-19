@@ -77,7 +77,7 @@ class ListFavoritesAdapter(deleteFavoriteArticleService: DeleteFavoriteArticleSe
 
     }
 
-    fun setData(favoriteArticles: List<FavoriteArticle>){
+    fun setData(favoriteArticles: List<FavoriteArticle>) {
         this.mFavoriteArticles = favoriteArticles
         notifyDataSetChanged()
     }

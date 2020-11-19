@@ -3,8 +3,7 @@ package estia.eh.mbds.newsletter.fragment
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,15 +14,15 @@ import estia.eh.mbds.newsletter.data.repository.ArticleRepository
 import estia.eh.mbds.newsletter.models.Article
 import estia.eh.mbds.newsletter.models.FavoriteArticle
 import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
+import estia.eh.mbds.newsletter.data.service.DeleteFavoriteArticleByTitleService
 import estia.eh.mbds.newsletter.data.service.InsertFavoriteArticleService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ListArticlesFragment : Fragment(), InsertFavoriteArticleService {
+class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFavoriteArticleByTitleService {
     private lateinit var recyclerView: RecyclerView
-
     private lateinit var mFavoriteArticleViewModel: FavoriteArticleViewModel
-
+    private var mListFavoriteArticlesTitle: MutableList<String> = mutableListOf<String>()
 
     /**
      * Fonction permettant de définir une vue à attacher à un fragment
@@ -50,6 +49,10 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService {
 
         mFavoriteArticleViewModel = ViewModelProvider(this).get(FavoriteArticleViewModel::class.java)
 
+        mFavoriteArticleViewModel.getAllFavoriteArticlesTitle.observe(viewLifecycleOwner, Observer {
+            mListFavoriteArticlesTitle = it
+        })
+
         return view
     }
 
@@ -73,13 +76,25 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService {
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            val adapter = ListArticlesAdapter(articles, this@ListArticlesFragment)
+            val adapter = ListArticlesAdapter(
+                    articles,
+                    this@ListArticlesFragment,
+                    this@ListArticlesFragment,
+                    mListFavoriteArticlesTitle
+            )
             recyclerView.adapter = adapter
+            /* mFavoriteArticleViewModel.getAllFavoriteArticlesTitle.observe(viewLifecycleOwner, Observer{
+                 adapter.setListFavoritesArticleData(it)
+             })*/
         }
     }
 
     override fun onFavoriteButtonClick(favoriteArticle: FavoriteArticle) {
         mFavoriteArticleViewModel.insert(favoriteArticle)
+    }
+
+    override fun deleteFavoriteArticleByTitle(articleTitle: String) {
+        mFavoriteArticleViewModel.deleteFavoriteByArticleTitle(articleTitle)
     }
 
 }
