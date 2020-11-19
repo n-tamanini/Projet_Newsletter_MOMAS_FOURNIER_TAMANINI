@@ -44,6 +44,7 @@ class ListArticlesFragment : Fragment()  {
                 DividerItemDecoration.VERTICAL
             )
         )
+
         return view
     }
 
@@ -66,16 +67,13 @@ class ListArticlesFragment : Fragment()  {
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            val adapter = ListArticlesAdapter(articles) {
-                //article -> Toast.makeText(getContext(), article.content, Toast.LENGTH_LONG).show()}
-                article ->
-                    val nextFrag = ArticleFragment()
-                    nextFrag.setArticle(article)
-                    activity!!.supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, nextFrag, "findThisFragment")
-                            .addToBackStack(null)
-                            .commit()
-            }
+            //val adapter = ListArticlesAdapter(articles) {article -> Toast.makeText(getContext(), article.content, Toast.LENGTH_LONG).show()}
+            val adapter = ListArticlesAdapter(articles) {article ->
+                requireFragmentManager().beginTransaction().apply {
+                replace(R.id.fragment_container, ArticleFragment(article))
+                addToBackStack(null)
+            }.commit()}
+
             recyclerView.adapter = adapter
         }
     }

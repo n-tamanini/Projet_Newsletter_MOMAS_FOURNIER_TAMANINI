@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         setSupportActionBar(toolbar)
 
 
-        changeFragment(ArticleFragment())
-        showFragment(ArticleFragment())
+        changeFragment(ListArticlesFragment())
+        showFragment(ListArticlesFragment())
     }
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {

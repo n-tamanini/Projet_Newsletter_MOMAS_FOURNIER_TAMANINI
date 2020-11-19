@@ -1,24 +1,25 @@
 package estia.eh.mbds.newsletter.adapter
 
 import android.content.Context
-import android.content.Intent
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import estia.eh.mbds.newsletter.MainActivity
 import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.data.service.ArticleOnlineService
 import estia.eh.mbds.newsletter.fragment.ArticleFragment
+import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 import estia.eh.mbds.newsletter.models.Article
+
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 
 class ListArticlesAdapter (
@@ -63,6 +64,8 @@ class ListArticlesAdapter (
 
         holder.itemView.setOnClickListener {
             listener(article)
+
+
 
         }
 
