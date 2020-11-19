@@ -1,10 +1,7 @@
 package estia.eh.mbds.newsletter.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -21,6 +18,7 @@ import kotlinx.coroutines.launch
 
 class ListArticlesFragment : Fragment()  {
     private lateinit var recyclerView: RecyclerView
+
 
 
     /**
@@ -45,6 +43,7 @@ class ListArticlesFragment : Fragment()  {
                         DividerItemDecoration.VERTICAL
                 )
         )
+
         return view
     }
 
@@ -71,8 +70,6 @@ class ListArticlesFragment : Fragment()  {
             recyclerView.adapter = adapter
         }
     }
-
-
 
 
 
