@@ -8,4 +8,11 @@
     <string name="features">Fonctionnalités implémentées</string>
     <string name="toolbar_name">Liste des articles</string>
     <string name="article_name">Article</string>
+    //fragment article
+    <string name="titre_article">Titre article</string>
+    <string name="apercu_article">Blablabla sur article de 3 lignes</string>
+    <string name="auteur_article">Nom Auteur</string>
+    <string name="date_article">Date</string>
+    <string name="lien_article">Lien</string>
+    <string name="favoris_article">Favoris</string>
 </resources>

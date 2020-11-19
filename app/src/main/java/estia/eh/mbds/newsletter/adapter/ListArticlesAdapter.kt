@@ -68,7 +68,7 @@ class ListArticlesAdapter (
 
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int { //Returns the total number of items in the data set held by the adapter.
         return mArticles.size
     }
 

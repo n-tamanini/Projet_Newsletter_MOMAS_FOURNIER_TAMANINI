@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import estia.eh.mbds.newsletter.fragment.ArticleFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 
 private lateinit var toolbar: Toolbar
@@ -17,8 +18,8 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         setSupportActionBar(toolbar)
 
 
-        changeFragment(ListArticlesFragment())
-        showFragment(ListArticlesFragment())
+        changeFragment(ArticleFragment())
+        showFragment(ArticleFragment())
     }
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
