@@ -13,7 +13,6 @@ import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.adapter.ListArticlesAdapter
 import estia.eh.mbds.newsletter.data.ArticleRepository
 import estia.eh.mbds.newsletter.models.Article
-import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.data.database.FavoriteArticle
 import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
 import estia.eh.mbds.newsletter.data.database.OnFavoriteButtonClickListener
