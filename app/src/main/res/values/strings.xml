@@ -6,5 +6,6 @@
     <string name="github_link">https://github.com/n-tamanini/Projet_Newsletter_MOMAS_FOURNIER_TAMANINI</string>
     <string name="external_libraries">Librairies externes</string>
     <string name="features">Fonctionnalités implémentées</string>
-    <string name="toolbar_name">Liste des articles</string>
+    <string name="toolbar_name_list_articles">Liste des articles</string>
+    <string name="toolbar_name_list_favorite_articles">Favoris</string>
 </resources>

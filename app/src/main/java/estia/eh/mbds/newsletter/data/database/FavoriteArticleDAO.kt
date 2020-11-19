@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Dao
 interface FavoriteArticleDAO {
-    @Query("SELECT * FROM FavoriteArticle")
+    @Query("SELECT * FROM favoriteArticle")
     fun getAll(): LiveData<List<FavoriteArticle>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -10,13 +10,13 @@ import kotlinx.coroutines.launch
 
 class FavoriteArticleViewModel(application: Application): AndroidViewModel(application) {
 
-    private val getAll: LiveData<List<FavoriteArticle>>
+    val getAllFavoriteArticles: LiveData<List<FavoriteArticle>>
     private val repository: FavoriteArticleRepository
 
     init{
         val favoriteArticleDao = AppDatabase.getDatabase(application).favoriteArticleDAO()
         repository = FavoriteArticleRepository(favoriteArticleDao)
-        getAll = repository.getFavoriteArticles()
+        getAllFavoriteArticles = repository.getFavoriteArticles()
     }
 
     fun insert(favoriteArticle: FavoriteArticle){

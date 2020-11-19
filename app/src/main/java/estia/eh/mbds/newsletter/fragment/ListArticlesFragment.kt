@@ -37,7 +37,7 @@ class ListArticlesFragment : Fragment(), OnFavoriteButtonClickListener {
         val view = inflater.inflate(R.layout.list_articles_fragment, container, false)
 
         (activity as? NavigationListener)?.let {
-            it.updateTitle(R.string.toolbar_name)
+            it.updateTitle(R.string.toolbar_name_list_articles)
         }
 
         recyclerView = view.findViewById(R.id.articles_list)
