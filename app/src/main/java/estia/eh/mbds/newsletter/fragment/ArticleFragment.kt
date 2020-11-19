@@ -9,12 +9,16 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
+import estia.eh.mbds.newsletter.data.ArticleRepository
 import estia.eh.mbds.newsletter.models.Article
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -54,7 +58,13 @@ class ArticleFragment : Fragment() {
 
         return view
     }
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val article = ArticleRepository.getInstance().getArticles()
+            setArticle(article)
+        }
+    }
     fun setArticle(article : Article){
         mArticleAuthor.text = article.author
         mArticleTitle.text = article.title
