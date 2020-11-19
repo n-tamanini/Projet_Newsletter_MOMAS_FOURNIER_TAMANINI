@@ -2,6 +2,7 @@ package estia.eh.mbds.newsletter.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,6 +60,9 @@ class ArticleFragment(article: Article) : Fragment() {
         mArticleTitle.text = mArticle.title
         mArticleDescription.text = mArticle.description
         mArticleAuthor.text = mArticle.author
+        mArticleLink.text = mArticle.url
+
+        mArticleLink.setMovementMethod(LinkMovementMethod.getInstance());
 
         val isoDate: Date = isoFormat.parse(mArticle.publishedAt)
         val date = DateFormat.getDateInstance(DateFormat.LONG).format(isoDate)
@@ -73,25 +77,11 @@ class ArticleFragment(article: Article) : Fragment() {
                 .skipMemoryCache(false)
                 .into(mArticleUrlToImage)
 
+
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lifecycleScope.launch(Dispatchers.IO) {
-            val article = ArticleRepository.getInstance().getArticles()
-            //setArticle(article)
-        }
-    }
-    fun setArticle(article : Article){
-        mArticleAuthor.text = article.author
-        mArticleTitle.text = article.title
-        mArticleDescription.text = article.description
-        mArticleAuthor.text = article.author
-        mArticleLink.text = article.url
 
-
-        val isoDate: Date = isoFormat.parse(article.publishedAt)
-        val date = DateFormat.getDateInstance(DateFormat.LONG).format(isoDate)
-        mArticlePublishedAt.text = date
     }
 }
