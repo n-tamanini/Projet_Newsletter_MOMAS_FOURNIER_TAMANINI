@@ -22,7 +22,8 @@ import java.util.*
 
 
 class ListArticlesAdapter (
-        items: List<Article>
+        items: List<Article>,
+        private val listener: (Article) -> Unit
 ) : RecyclerView.Adapter<ListArticlesAdapter.ViewHolder>() {
 
     private val mArticles: List<Article> = items
@@ -60,10 +61,8 @@ class ListArticlesAdapter (
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
 
-        holder.mArticleTitle.setOnClickListener{
-            val intent = Intent(context, ArticleFragment)
-            intent.putExtra("url", holder.mArticleUrlToImage)
-            context.startActivity(intent)
+        holder.itemView.setOnClickListener{
+           listener(article)
         }
 
     }
