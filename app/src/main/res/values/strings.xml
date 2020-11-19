@@ -27,7 +27,6 @@
         <item>Science</item>
         <item>Sport</item>
         <item>Technologie</item>
-        <item>India</item>
     </string-array>
     <string name="toolbar_name_list_articles">Liste des articles</string>
     <string name="toolbar_name_list_favorite_articles">Favoris</string>
