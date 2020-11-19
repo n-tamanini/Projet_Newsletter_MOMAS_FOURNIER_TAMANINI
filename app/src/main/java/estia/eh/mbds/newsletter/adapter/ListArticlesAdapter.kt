@@ -61,8 +61,9 @@ class ListArticlesAdapter (
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
 
-        holder.itemView.setOnClickListener{
-           listener(article)
+        holder.itemView.setOnClickListener {
+            listener(article)
+
         }
 
     }
