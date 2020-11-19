@@ -30,4 +30,7 @@
     </string-array>
     <string name="toolbar_name_list_articles">Liste des articles</string>
     <string name="toolbar_name_list_favorite_articles">Favoris</string>
+    <string name="wantToDeleteFavoriteArticle">Voulez-vous vraiment supprimer cet article ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
 </resources>

@@ -1,4 +1,4 @@
-package estia.eh.mbds.newsletter.data.database
+package estia.eh.mbds.newsletter.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

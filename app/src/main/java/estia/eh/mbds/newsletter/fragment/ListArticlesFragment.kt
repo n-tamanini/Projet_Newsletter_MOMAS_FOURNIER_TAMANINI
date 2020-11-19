@@ -11,15 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.adapter.ListArticlesAdapter
-import estia.eh.mbds.newsletter.data.ArticleRepository
+import estia.eh.mbds.newsletter.data.repository.ArticleRepository
 import estia.eh.mbds.newsletter.models.Article
-import estia.eh.mbds.newsletter.data.database.FavoriteArticle
+import estia.eh.mbds.newsletter.models.FavoriteArticle
 import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
-import estia.eh.mbds.newsletter.data.database.OnFavoriteButtonClickListener
+import estia.eh.mbds.newsletter.data.service.InsertFavoriteArticleService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ListArticlesFragment : Fragment(), OnFavoriteButtonClickListener {
+class ListArticlesFragment : Fragment(), InsertFavoriteArticleService {
     private lateinit var recyclerView: RecyclerView
 
     private lateinit var mFavoriteArticleViewModel: FavoriteArticleViewModel

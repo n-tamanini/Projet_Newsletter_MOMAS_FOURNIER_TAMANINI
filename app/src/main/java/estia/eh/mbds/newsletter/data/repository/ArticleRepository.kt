@@ -1,4 +1,4 @@
-package estia.eh.mbds.newsletter.data
+package estia.eh.mbds.newsletter.data.repository
 
 import estia.eh.mbds.newsletter.data.service.ArticleOnlineService
 import estia.eh.mbds.newsletter.data.service.ArticleService

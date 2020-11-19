@@ -4,7 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import estia.eh.mbds.newsletter.data.FavoriteArticleRepository
+import estia.eh.mbds.newsletter.data.repository.FavoriteArticleRepository
+import estia.eh.mbds.newsletter.models.FavoriteArticle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -22,6 +23,12 @@ class FavoriteArticleViewModel(application: Application): AndroidViewModel(appli
     fun insert(favoriteArticle: FavoriteArticle){
         viewModelScope.launch(Dispatchers.IO){
             repository.insertArticleIntoFavorites(favoriteArticle)
+        }
+    }
+
+    fun deleteFavoriteArticle(favoriteArticle: FavoriteArticle){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteFavoriteArticle(favoriteArticle)
         }
     }
 

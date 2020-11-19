@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import estia.eh.mbds.newsletter.R
-import estia.eh.mbds.newsletter.data.database.FavoriteArticle
-import estia.eh.mbds.newsletter.data.database.OnFavoriteButtonClickListener
+import estia.eh.mbds.newsletter.models.FavoriteArticle
+import estia.eh.mbds.newsletter.data.service.InsertFavoriteArticleService
 import estia.eh.mbds.newsletter.models.Article
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -21,11 +21,11 @@ import java.util.*
 
 class ListArticlesAdapter(
         items: List<Article>,
-        listener: OnFavoriteButtonClickListener
+        insertFavoriteArticleService: InsertFavoriteArticleService
 ) : RecyclerView.Adapter<ListArticlesAdapter.ViewHolder>() {
 
     private val mArticles: List<Article> = items
-    private val mListener = listener
+    private val mInsertFavoriteArticleService = insertFavoriteArticleService
 
     private val DATE_FORMAT_ISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     private val isoFormat = SimpleDateFormat(DATE_FORMAT_ISO)
@@ -89,7 +89,7 @@ class ListArticlesAdapter(
                 publishedAt = publishedAt,
                 content = content
         )
-        mListener.onFavoriteButtonClick(favoriteArticle)
+        mInsertFavoriteArticleService.onFavoriteButtonClick(favoriteArticle)
     }
 
     override fun getItemCount(): Int {
