@@ -25,11 +25,11 @@ class ArticleFragment : Fragment() {
             it.updateTitle(R.string.article_name)
         }
 
-        val editWeb: WebView = findViewById(R.id.url)
+       /* val editWeb: WebView = findViewById(R.id.url)
         val intent = Intent.extra.getString(context)
         val url = intent.getStringExtra("url")
         editWeb.loadUrl(url!!)
-
+*/
         return view
     }
 }

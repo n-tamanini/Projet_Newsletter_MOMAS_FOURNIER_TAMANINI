@@ -66,7 +66,7 @@ class ListArticlesFragment : Fragment()  {
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            val adapter = ListArticlesAdapter(articles) {articles -> Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_LONG).show()}
+            val adapter = ListArticlesAdapter(articles) {articles -> Toast.makeText(getContext(), articles.content, Toast.LENGTH_LONG).show()}
             recyclerView.adapter = adapter
         }
     }
