@@ -18,7 +18,6 @@ import kotlinx.coroutines.launch
 import estia.eh.mbds.newsletter.data.database.FavoriteArticle
 import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
 import estia.eh.mbds.newsletter.data.database.OnFavoriteButtonClickListener
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ListArticlesFragment : Fragment(), OnFavoriteButtonClickListener {
@@ -73,8 +72,7 @@ class ListArticlesFragment : Fragment(), OnFavoriteButtonClickListener {
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            //val adapter = ListArticlesAdapter(articles, this@ListArticlesFragment) {article -> Toast.makeText(getContext(), article.content, Toast.LENGTH_LONG).show()}
-            val adapter = ListArticlesAdapter(articles) {article ->
+            val adapter = ListArticlesAdapter(articles, this@ListArticlesFragment) {article ->
                 requireFragmentManager().beginTransaction().apply {
                 replace(R.id.fragment_container, ArticleFragment(article))
                 addToBackStack(null)

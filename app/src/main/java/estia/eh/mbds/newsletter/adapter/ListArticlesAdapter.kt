@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import estia.eh.mbds.newsletter.MainActivity
+import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.data.service.ArticleOnlineService
 import estia.eh.mbds.newsletter.fragment.ArticleFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
@@ -27,8 +28,9 @@ import java.util.*
 
 class ListArticlesAdapter (
         items: List<Article>,
-        private val listenerArticle: (Article) -> Unit,
-        listenerFavoris: OnFavoriteButtonClickListener
+        listenerFavoris: OnFavoriteButtonClickListener,
+        private val listenerArticle: (Article) -> Unit
+
 ) : RecyclerView.Adapter<ListArticlesAdapter.ViewHolder>() {
 
     private val mArticles: List<Article> = items
@@ -46,15 +48,6 @@ class ListArticlesAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article: Article = mArticles[position]
-
-        val context: Context = holder.mArticleUrlToImage.context
-        Glide.with(context)
-                .load(article.urlToImage)
-                .apply(RequestOptions.fitCenterTransform())
-                .placeholder(R.drawable.ic_baseline_filter_hdr_24)
-                .error(R.drawable.ic_baseline_filter_hdr_24)
-                .skipMemoryCache(false)
-                .into(holder.mArticleUrlToImage)
 
         holder.mArticleTitle.text = article.title
         holder.mArticleDescription.text = article.description
