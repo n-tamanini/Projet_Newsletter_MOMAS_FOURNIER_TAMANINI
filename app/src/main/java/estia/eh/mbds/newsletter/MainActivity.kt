@@ -54,10 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
                 showFragment(ListFavoritesFragment())
                 true
             }
-            R.id.list_article->{
-                showFragment(ListArticlesFragment())
-                true
-            }
         }
         return super.onOptionsItemSelected(item)
     }

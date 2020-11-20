@@ -29,14 +29,6 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
     /**
      * Fonction permettant de définir une vue à attacher à un fragment
      */
-/*
-    override fun onSaveInstanceState(savedInstanceState: Bundle)
-    {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putString("COUNTRY", mCountry)
-        savedInstanceState.putString("CATEGORY", mCategory)
-    }*/
-
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -79,6 +71,7 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
             mCategory = category
             println("mCategory : $mCategory")
         } else {
+            // Valeurs par défaut. Normalement, il est impossible que country ou category soient nuls
             mCountry = "fr"
             mCategory = "sports"
         }
