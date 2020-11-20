@@ -1,5 +1,5 @@
 <resources>
-	//Affichage about us
+    //Affichage about us
     <string name="app_name">Newsletter</string>
     <string name="members">Membres du groupe</string>
     <string name="about_us_toolbar_name">À propos de nous</string>
@@ -13,7 +13,7 @@
     <string name="source_article">En savoir plus : </string>
     <string name="author_article">Réalisé par : </string>
     <string name="date_article">Daté du : </string>
-	//Filtres
+    //Filtres
     <string-array name="country_arrays">
         <item>us</item>
         <item>ar</item>
@@ -39,4 +39,7 @@
     <string name="wantToDeleteFavoriteArticle">Voulez-vous vraiment supprimer cet article ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
+    <string name="find_articles">Rechercher des articles</string>
+    <string name="select_country">Sélectionnez un pays</string>
+    <string name="select_category">Sélectionnez une catégorie</string>
 </resources>

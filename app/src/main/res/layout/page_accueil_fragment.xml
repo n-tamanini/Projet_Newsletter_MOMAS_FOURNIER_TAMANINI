@@ -1,84 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/category_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Select CATEGORY"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center_horizontal"
-            app:layout_constraintBottom_toTopOf="@id/spinner_category"
-            />
-
+            android:layout_marginTop="30dp"
+            android:layout_weight="0"
+            android:text="@string/select_category"
+            app:layout_constraintBottom_toTopOf="@id/spinner_category" />
 
         <Spinner
             android:id="@+id/spinner_category"
             android:layout_width="match_parent"
-            android:layout_alignParentRight="true"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:layout_alignParentRight="true"
             android:layout_gravity="center_horizontal"
-            android:transitionGroup="false"
-            android:touchscreenBlocksFocus="false"
-            android:clickable="false"
+            android:layout_marginTop="10dp"
             android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:clickable="false"
             android:entries="@array/category_arrays"
             android:padding="10dp"
-            android:layout_marginTop="10dp"
-            >
-        </Spinner>
+            android:textAlignment="center"
+            android:touchscreenBlocksFocus="false"
+            android:transitionGroup="false"/>
 
 
         <TextView
             android:id="@+id/country_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
             android:layout_gravity="center_horizontal"
-            android:text="SELECT COUNTRY"
-            android:layout_marginTop="180dp"
-            app:layout_constraintBottom_toTopOf="@id/spinner_country"/>
+            android:layout_marginTop="50dp"
+            android:layout_weight="0"
+            android:text="@string/select_country"
+            app:layout_constraintBottom_toTopOf="@id/spinner_country" />
 
 
         <Spinner
-        android:id="@+id/spinner_country"
-        android:layout_width="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal"
-        android:transitionGroup="false"
-        android:touchscreenBlocksFocus="false"
-        android:clickable="false"
-        android:background="@drawable/ic_baseline_check_box_outline_blank_24"
-        android:entries="@array/country_arrays"
-        android:layout_marginTop="10dp"
-        android:padding="10dp">
-
-    </Spinner>
-
-        <Button
-            android:id="@+id/btn_click_me"
-            android:layout_width="wrap_content"
+            android:id="@+id/spinner_country"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recherche"
+            android:layout_alignParentRight="true"
             android:layout_gravity="center_horizontal"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="230dp"/>
-
-
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:clickable="false"
+            android:entries="@array/country_arrays"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:touchscreenBlocksFocus="false"
+            android:transitionGroup="false"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/find_articles_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_articles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="25dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
