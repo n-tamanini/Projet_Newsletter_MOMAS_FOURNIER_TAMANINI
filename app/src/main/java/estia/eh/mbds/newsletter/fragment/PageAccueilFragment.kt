@@ -1,6 +1,5 @@
 package estia.eh.mbds.newsletter.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
-
 
 class PageAccueilFragment : Fragment() {
 
@@ -88,14 +86,19 @@ class PageAccueilFragment : Fragment() {
             }
         }
 
+
         searchButton = view.findViewById(R.id.find_articles_btn)
-        searchButton.setOnClickListener{
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.fragment_container, ListArticlesFragment())
-            transaction?.commit()
-
+        searchButton.setOnClickListener {
+            val listArticlesFragment = ListArticlesFragment()
+            val bundle = Bundle()
+            bundle.putString("country", currentCountry)
+            bundle.putString("category", currentCategory)
+            listArticlesFragment.arguments = bundle
+            activity?.supportFragmentManager?.beginTransaction()?.apply {
+                replace(R.id.fragment_container, listArticlesFragment)
+                addToBackStack(null)
+            }?.commit()
         }
-
 
         return view
     }
