@@ -161,23 +161,22 @@ fun clickBtn() {
             if (selectedItem == "Add new category") {
                 // do your stuff*/
             }
-        } // to close the onItemSelected
 
-        override fun onNothingSelected(parent: AdapterView<*>) {
-
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+            TODO("Not yet implemented")
         }
-    }
+    } // to close the onItemSelected
 
-    clickButton.setOnClickListener(object : View.OnClickListener{
+    }
+/*
+    clickButton.setOnClickListener(object : View.OnClickListener {
         override fun onClick(v: View?) {
             loadSources()
         }
-
+    }
+*/
 
        /* val intent = Intent(this, ListArticlesFragment::class.java).apply {
         }
         startActivity(intent)*/
     }
-
-}
-}
