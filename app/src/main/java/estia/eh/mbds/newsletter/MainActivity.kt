@@ -3,6 +3,8 @@ package estia.eh.mbds.newsletter
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -13,6 +15,9 @@ import estia.eh.mbds.newsletter.fragment.PageAccueilFragment
 
 private lateinit var toolbar: Toolbar
 private lateinit var toolbarOpt: Toolbar
+private lateinit var clickButton: Button
+private lateinit var spinnerCategory: Spinner
+private lateinit var spinnerCountry: Spinner
 
 class MainActivity : AppCompatActivity(), NavigationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +26,10 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         setContentView(R.layout.activity_main)
         toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
+        clickButton = findViewById(R.id.btn_click_me)
+        spinnerCategory = findViewById(R.id.spinner_category)
+        spinnerCountry = findViewById(R.id.spinner_country)
+
 
         changeFragment(PageAccueilFragment())
         showFragment(PageAccueilFragment())
