@@ -1,6 +1,5 @@
 package estia.eh.mbds.newsletter.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
-import estia.eh.mbds.newsletter.models.Constants
 
 class PageAccueilFragment : Fragment() {
 
@@ -26,9 +24,9 @@ class PageAccueilFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.page_accueil_fragment, container, false)
-        clickButton = view.findViewById(R.id.btn_click_me)
-        spinnerCategory = view.findViewById(R.id.spinner_category)
-        spinnerCountry = view.findViewById(R.id.spinner_country)
+        searchButton = view.findViewById(R.id.find_articles_btn)
+        spinnerCategories = view.findViewById(R.id.spinner_category)
+        spinnerCountries = view.findViewById(R.id.spinner_country)
         (activity as? NavigationListener)?.let {
             it.updateTitle(R.string.toolbar_name_page_accueil)
         }

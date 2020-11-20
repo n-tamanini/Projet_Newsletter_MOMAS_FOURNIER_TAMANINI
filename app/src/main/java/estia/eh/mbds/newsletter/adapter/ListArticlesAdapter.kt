@@ -30,6 +30,7 @@ class ListArticlesAdapter(
 ) : RecyclerView.Adapter<ListArticlesAdapter.ViewHolder>() {
 
     private val mArticles: List<Article> = items
+
     private val mInsertFavoriteArticleService = insertFavoriteArticleService
     private val mDeleteFavoriteArticleByTitleService = deleteFavoriteArticleByTitleService
     private var mListFavoriteArticlesTitle = listFavoriteArticlesTitle
@@ -63,6 +64,7 @@ class ListArticlesAdapter(
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
 
+        //Gestion des favoris (affichage et clique)
         if (mListFavoriteArticlesTitle.contains(article.title)) {
             ArticleRepository.getInstance().updateFavoriteStatus(article, true)
             holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
@@ -88,11 +90,15 @@ class ListArticlesAdapter(
                 }
             }
         }
-
+        //Gestion du clique sur un article)
         holder.itemView.setOnClickListener {
             listenerArticle(article)
         }
 
+    }
+
+    override fun getItemCount(): Int { //Returns the total number of items in the data set held by the adapter.
+        return mArticles.size
     }
 
     private fun insertArticleToFavorites(article: Article) {
@@ -122,11 +128,8 @@ class ListArticlesAdapter(
         mInsertFavoriteArticleService.onFavoriteButtonClick(favoriteArticle)
     }
 
-    override fun getItemCount(): Int { //Returns the total number of items in the data set held by the adapter.
-        return mArticles.size
-    }
 
-    class ViewHolder(view: View) :
+    class ViewHolder(view: View) : //décrit la vue et métadata des item dans le recycleView
             RecyclerView.ViewHolder(view) {
         val mArticleUrlToImage: ImageView
         val mArticleAuthor: TextView
