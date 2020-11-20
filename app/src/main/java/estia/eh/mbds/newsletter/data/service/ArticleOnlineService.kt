@@ -64,8 +64,12 @@ class ArticleOnlineService : ArticleService {
         })
     }
 
-    override fun getArticles(): List<Article> {
-        return service.listTopHeadline("fr").execute().body()?.articles ?: listOf()
+    override fun getArticlesByCountry(country: String): List<Article> {
+        return service.getTopHeadlinesByCountry(country).execute().body()?.articles ?: listOf()
+    }
+
+    override fun getArticlesByCountryAndCategory(country: String, category: String): List<Article> {
+        return service.getTopHeadlinesByCountryAndCategory(country, category).execute().body()?.articles ?: listOf()
     }
 
     companion object {

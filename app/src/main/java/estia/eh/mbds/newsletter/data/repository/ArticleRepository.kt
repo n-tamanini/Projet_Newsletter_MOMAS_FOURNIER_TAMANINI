@@ -11,7 +11,9 @@ class ArticleRepository {
         articleService = ArticleOnlineService()
     }
 
-    fun getArticles(): List<Article> = articleService.getArticles()
+    fun getArticlesByCountry(country: String): List<Article> = articleService.getArticlesByCountry(country)
+
+    fun getArticlesByCountryAndCategory(country: String, category: String): List<Article> = articleService.getArticlesByCountryAndCategory(country, category)
 
     fun updateFavoriteStatus(article: Article, status: Boolean) {
         article.isFavorite = status

@@ -59,15 +59,27 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getArticles()
+
+        // Faudra changer tout ça : faut initialiser les articles avec les paramètres rentrés dans page d'accueil
+        //(remplacer le "fr" et "sports" par les paramètres rentrés)
+        getArticlesByCountryAndCategory("fr", "sports")
     }
 
-    private fun getArticles() {
+
+    private fun getArticlesByCountry(country: String) {
         lifecycleScope.launch(Dispatchers.IO) {
-            val articles = ArticleRepository.getInstance().getArticles()
+            val articles = ArticleRepository.getInstance().getArticlesByCountry(country)
             bindData(articles)
         }
     }
+
+    private fun getArticlesByCountryAndCategory(country: String, category: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val articles = ArticleRepository.getInstance().getArticlesByCountryAndCategory(country,category)
+            bindData(articles)
+        }
+    }
+
 
     /**
      * Rempli le recyclerview avec les données récupérées dans le web service
@@ -81,12 +93,13 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
                     this@ListArticlesFragment,
                     this@ListArticlesFragment,
                     mListFavoriteArticlesTitle
-            ) {article ->
+            ) { article ->
                 requireFragmentManager().beginTransaction().apply {
-                replace(R.id.fragment_container, ArticleFragment(article))
-                addToBackStack(null)
-            }.commit()}
-			
+                    replace(R.id.fragment_container, ArticleFragment(article))
+                    addToBackStack(null)
+                }.commit()
+            }
+
             recyclerView.adapter = adapter
         }
     }
