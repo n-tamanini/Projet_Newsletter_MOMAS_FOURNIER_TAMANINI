@@ -30,4 +30,5 @@
     </string-array>
     <string name="toolbar_name_list_articles">Liste des articles</string>
     <string name="toolbar_name_list_favorite_articles">Favoris</string>
+    <string name="toolbar_name_page_accueil">Page d\'accueil</string>
 </resources>

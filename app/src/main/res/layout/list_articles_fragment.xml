@@ -17,12 +17,5 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/article_item" />
 
-    <include
-        android:id="@+id/bottom_toolbar_id"
-        layout="@layout/bottom_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

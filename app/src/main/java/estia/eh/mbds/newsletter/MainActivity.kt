@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.fragment.AboutUsFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 import estia.eh.mbds.newsletter.fragment.ListFavoritesFragment
+import estia.eh.mbds.newsletter.fragment.PageAccueilFragment
 
 private lateinit var toolbar: Toolbar
 private lateinit var toolbarOpt: Toolbar
@@ -21,8 +22,8 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
 
-        changeFragment(ListArticlesFragment())
-        showFragment(ListArticlesFragment())
+        changeFragment(PageAccueilFragment())
+        showFragment(PageAccueilFragment())
     }
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity(), NavigationListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.return_home->{
-                showFragment(ListArticlesFragment())
+                showFragment(PageAccueilFragment())
                 true
             }
             R.id.about_us->{
@@ -58,6 +59,10 @@ class MainActivity : AppCompatActivity(), NavigationListener {
             }
             R.id.list_favoris->{
                 showFragment(ListFavoritesFragment())
+                true
+            }
+            R.id.list_article->{
+                showFragment(ListArticlesFragment())
                 true
             }
         }
