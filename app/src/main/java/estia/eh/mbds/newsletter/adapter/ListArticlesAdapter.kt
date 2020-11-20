@@ -5,19 +5,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import estia.eh.mbds.newsletter.MainActivity
 import estia.eh.mbds.newsletter.R
-import estia.eh.mbds.newsletter.data.service.ArticleOnlineService
-import estia.eh.mbds.newsletter.fragment.ArticleFragment
-import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
-import estia.eh.mbds.newsletter.data.database.FavoriteArticle
 import estia.eh.mbds.newsletter.data.repository.ArticleRepository
 import estia.eh.mbds.newsletter.data.service.DeleteFavoriteArticleByTitleService
 import estia.eh.mbds.newsletter.models.FavoriteArticle
@@ -31,7 +25,7 @@ class ListArticlesAdapter(
         items: List<Article>,
         insertFavoriteArticleService: InsertFavoriteArticleService,
         deleteFavoriteArticleByTitleService: DeleteFavoriteArticleByTitleService,
-        listFavoriteArticlesTitle: MutableList<String>
+        listFavoriteArticlesTitle: MutableList<String>,
         private val listenerArticle: (Article) -> Unit
 ) : RecyclerView.Adapter<ListArticlesAdapter.ViewHolder>() {
 

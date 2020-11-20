@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import estia.eh.mbds.newsletter.fragment.ArticleFragment
 import estia.eh.mbds.newsletter.fragment.AboutUsFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 import estia.eh.mbds.newsletter.fragment.ListFavoritesFragment
