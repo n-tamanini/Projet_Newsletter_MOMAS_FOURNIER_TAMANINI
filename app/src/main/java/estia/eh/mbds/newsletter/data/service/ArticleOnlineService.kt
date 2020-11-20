@@ -69,8 +69,12 @@ class ArticleOnlineService : ArticleService {
     }
 
     companion object {
-        private const val apiKey = "eb35bde8f28641b6a21dbee8d7a6195b"
+        private const val apiKey = "07775ff924be4d9bacdfabfa8bf6f022"
         private const val apiUrl = "https://newsapi.org/v2/"
     }
+
+    // Autres API KEYS :
+    //eb35bde8f28641b6a21dbee8d7a6195b
+
 
 }

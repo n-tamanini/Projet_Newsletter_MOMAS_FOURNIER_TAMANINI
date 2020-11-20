@@ -10,9 +10,9 @@
     <string name="toolbar_name">Liste des articles</string>
     <string name="article_name">Article</string>
     //Affichage de l'article
-    <string name="source_article">En savoir plus: </string>
-    <string name="author_article">Réalisé par: </string>
-    <string name="date_article">Daté du: </string>
+    <string name="source_article">En savoir plus : </string>
+    <string name="author_article">Réalisé par : </string>
+    <string name="date_article">Daté du : </string>
 	//Filtres
     <string-array name="country_arrays">
         <item>Pays</item>
