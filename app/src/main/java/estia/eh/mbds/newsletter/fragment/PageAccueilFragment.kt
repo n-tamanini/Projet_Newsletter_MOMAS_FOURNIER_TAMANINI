@@ -1,5 +1,6 @@
 package estia.eh.mbds.newsletter.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,22 +10,15 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.models.Constants
 
+class PageAccueilFragment : Fragment() {
 
-class PageAccueilFragment: Fragment() {
-    private lateinit var clickButton: Button
-    private lateinit var spinnerCategory: Spinner
-    private lateinit var spinnerCountry: Spinner
-    private var selectedCountryPos:Int =0
-    private var selectedCategoriePos:Int = 0
-    private var selectedCountry:String = "All"
-
-    public val COUNTRIES : Array<String> = arrayOf<String>("ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph", "pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za")
+    private lateinit var spinnerCategories: Spinner
+    private lateinit var spinnerCountries: Spinner
+    private lateinit var searchButton: Button
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -39,32 +33,73 @@ class PageAccueilFragment: Fragment() {
             it.updateTitle(R.string.toolbar_name_page_accueil)
         }
 
-        val adapterCountry =
-            ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, COUNTRIES)
-        adapterCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerCountry.adapter = adapterCountry
+        val countries = resources.getStringArray(R.array.country_arrays)
+        val categories = resources.getStringArray(R.array.category_arrays)
 
-        spinnerCountry.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                selectedCountry =COUNTRIES[position]
-                selectedCountryPos = position
-                /*  val selectedItem = parent.getItemAtPosition(position).toString()
-                if (selectedItem == "Add new category") {
-                    // do your stuff*/
+        var currentCategory = categories[0]
+        var currentCountry = countries[0]
+
+        spinnerCategories = view.findViewById(R.id.spinner_category)
+        if (spinnerCategories != null) {
+            val adapterCategories = ArrayAdapter(
+                    requireContext(),
+                    android.R.layout.simple_spinner_item,
+                    categories
+            )
+            spinnerCategories.adapter = adapterCategories
+
+            spinnerCategories.onItemSelectedListener = object :
+                    AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View,
+                        position: Int,
+                        id: Long) {
+                    currentCategory = categories[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
             }
-        } // to close the onItemSelected
+        }
 
-        override fun onNothingSelected(parent: AdapterView<*>) {
+        spinnerCountries = view.findViewById(R.id.spinner_country)
+        if (spinnerCountries != null) {
+            val adapterCountries = ArrayAdapter(
+                    requireContext(),
+                    android.R.layout.simple_spinner_item,
+                    countries
+            )
+            spinnerCountries.adapter = adapterCountries
+
+            spinnerCountries.onItemSelectedListener = object :
+                    AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View,
+                        position: Int,
+                        id: Long) {
+                    currentCountry = countries[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
+        }
+
+        searchButton = view.findViewById(R.id.find_articles_btn)
+        searchButton.setOnClickListener{
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragment_container, ListArticlesFragment())
+            transaction?.commit()
 
         }
 
 
-        clickButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                //getArticle
-            }
-        })
-
         return view
     }
 }
+
+

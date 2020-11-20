@@ -64,13 +64,21 @@ class ArticleOnlineService : ArticleService {
         })
     }
 
-    override fun getArticles(): List<Article> {
-        return service.listTopHeadline("fr").execute().body()?.articles ?: listOf()
+    override fun getArticlesByCountry(country: String): List<Article> {
+        return service.getTopHeadlinesByCountry(country).execute().body()?.articles ?: listOf()
+    }
+
+    override fun getArticlesByCountryAndCategory(country: String, category: String): List<Article> {
+        return service.getTopHeadlinesByCountryAndCategory(country, category).execute().body()?.articles ?: listOf()
     }
 
     companion object {
-        private const val apiKey = "eb35bde8f28641b6a21dbee8d7a6195b"
+        private const val apiKey = "07775ff924be4d9bacdfabfa8bf6f022"
         private const val apiUrl = "https://newsapi.org/v2/"
     }
+
+    // Autres API KEYS :
+    //eb35bde8f28641b6a21dbee8d7a6195b
+
 
 }

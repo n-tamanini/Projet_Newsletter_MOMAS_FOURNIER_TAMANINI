@@ -1,25 +1,15 @@
 package estia.eh.mbds.newsletter
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import estia.eh.mbds.newsletter.fragment.ArticleFragment
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.fragment.AboutUsFragment
 import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 import estia.eh.mbds.newsletter.fragment.ListFavoritesFragment
 import estia.eh.mbds.newsletter.fragment.PageAccueilFragment
-import estia.eh.mbds.newsletter.models.Constants
-
 
 private lateinit var toolbar: Toolbar
 
@@ -31,7 +21,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         setContentView(R.layout.activity_main)
         toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
-
 
         changeFragment(PageAccueilFragment())
         showFragment(PageAccueilFragment())
@@ -82,4 +71,5 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

@@ -5,36 +5,34 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import estia.eh.mbds.newsletter.MainActivity
 import estia.eh.mbds.newsletter.R
-import estia.eh.mbds.newsletter.data.service.ArticleOnlineService
-import estia.eh.mbds.newsletter.fragment.ArticleFragment
-import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
-import estia.eh.mbds.newsletter.data.database.FavoriteArticle
-import estia.eh.mbds.newsletter.data.database.OnFavoriteButtonClickListener
+import estia.eh.mbds.newsletter.data.repository.ArticleRepository
+import estia.eh.mbds.newsletter.data.service.DeleteFavoriteArticleByTitleService
+import estia.eh.mbds.newsletter.models.FavoriteArticle
+import estia.eh.mbds.newsletter.data.service.InsertFavoriteArticleService
 import estia.eh.mbds.newsletter.models.Article
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-
-class ListArticlesAdapter (
+class ListArticlesAdapter(
         items: List<Article>,
-        listenerFavoris: OnFavoriteButtonClickListener,
+        insertFavoriteArticleService: InsertFavoriteArticleService,
+        deleteFavoriteArticleByTitleService: DeleteFavoriteArticleByTitleService,
+        listFavoriteArticlesTitle: MutableList<String>,
         private val listenerArticle: (Article) -> Unit
-
 ) : RecyclerView.Adapter<ListArticlesAdapter.ViewHolder>() {
 
     private val mArticles: List<Article> = items
-    private val mListener = listenerFavoris
+    private val mInsertFavoriteArticleService = insertFavoriteArticleService
+    private val mDeleteFavoriteArticleByTitleService = deleteFavoriteArticleByTitleService
+    private var mListFavoriteArticlesTitle = listFavoriteArticlesTitle
 
     private val DATE_FORMAT_ISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     private val isoFormat = SimpleDateFormat(DATE_FORMAT_ISO)
@@ -42,7 +40,6 @@ class ListArticlesAdapter (
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.article_item, parent, false)
-
         return ViewHolder(view)
     }
 
@@ -66,23 +63,42 @@ class ListArticlesAdapter (
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
 
-        holder.itemView.setOnClickListener {
-            listenerArticle(article)
+        if (mListFavoriteArticlesTitle.contains(article.title)) {
+            ArticleRepository.getInstance().updateFavoriteStatus(article, true)
+            holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
+        } else {
+            ArticleRepository.getInstance().updateFavoriteStatus(article, false)
+            holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_empty_24)
         }
 
         holder.mFavoriteButton.setOnClickListener {
-            holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
+            if (!article.isFavorite) {
+                ArticleRepository.getInstance().updateFavoriteStatus(article, true)
+                holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
+                mListFavoriteArticlesTitle.add(article.title)
+                insertArticleToFavorites(article)
+            } else {
+                ArticleRepository.getInstance().updateFavoriteStatus(article, false)
+                holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_empty_24)
+                mDeleteFavoriteArticleByTitleService.deleteFavoriteArticleByTitle(article.title)
+                for (i in 0 until mListFavoriteArticlesTitle.size) {
+                    if (mListFavoriteArticlesTitle[i] == article.title) {
+                        mListFavoriteArticlesTitle.removeAt(i)
+                    }
+                }
+            }
+        }
 
-            insertArticleToFavorites(article)
-
+        holder.itemView.setOnClickListener {
+            listenerArticle(article)
         }
 
     }
 
     private fun insertArticleToFavorites(article: Article) {
 
-        val sourceId = article.source.id
-        val sourceName = article.source.name
+        val sourceId = article.source?.id
+        val sourceName = article.source?.name
         val author = article.author
         val title = article.title
         val description = article.description
@@ -103,7 +119,7 @@ class ListArticlesAdapter (
                 publishedAt = publishedAt,
                 content = content
         )
-        mListener.onFavoriteButtonClick(favoriteArticle)
+        mInsertFavoriteArticleService.onFavoriteButtonClick(favoriteArticle)
     }
 
     override fun getItemCount(): Int { //Returns the total number of items in the data set held by the adapter.
@@ -119,7 +135,6 @@ class ListArticlesAdapter (
         val mArticlePublishedAt: TextView
         val mFavoriteButton: Button
 
-
         init {
             // Enable click on item
             mArticleUrlToImage = view.findViewById(R.id.item_list_urlToImage)
@@ -129,7 +144,6 @@ class ListArticlesAdapter (
             mArticlePublishedAt = view.findViewById(R.id.item_list_publishedAt)
             mFavoriteButton = view.findViewById(R.id.item_list_favorite_button)
         }
-
     }
 
 }
