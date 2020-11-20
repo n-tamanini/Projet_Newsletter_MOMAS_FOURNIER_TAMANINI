@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -13,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.adapter.ListFavoritesAdapter
+import estia.eh.mbds.newsletter.models.FavoriteArticle
 import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
+import estia.eh.mbds.newsletter.data.service.DeleteFavoriteArticleService
 
-class ListFavoritesFragment: Fragment() {
+class ListFavoritesFragment : Fragment(), DeleteFavoriteArticleService {
 
     private lateinit var recyclerView: RecyclerView
 
@@ -43,15 +46,22 @@ class ListFavoritesFragment: Fragment() {
                         DividerItemDecoration.VERTICAL
                 )
         )
-        val adapter = ListFavoritesAdapter()
-        recyclerView.adapter = adapter
 
         mFavoriteArticleViewModel = ViewModelProvider(this).get(FavoriteArticleViewModel::class.java)
-        mFavoriteArticleViewModel.getAllFavoriteArticles.observe(viewLifecycleOwner, Observer {favoriteArticle ->
+
+        val adapter = ListFavoritesAdapter(this@ListFavoritesFragment)
+        recyclerView.adapter = adapter
+
+
+        mFavoriteArticleViewModel.getAllFavoriteArticles.observe(viewLifecycleOwner, Observer { favoriteArticle ->
             adapter.setData(favoriteArticle)
         })
 
         return view
+    }
+
+    override fun onDeleteFavoriteButtonClick(favoriteArticle: FavoriteArticle) {
+        mFavoriteArticleViewModel.deleteFavoriteArticle(favoriteArticle)
     }
 
 }

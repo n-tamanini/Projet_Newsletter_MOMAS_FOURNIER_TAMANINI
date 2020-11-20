@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import estia.eh.mbds.newsletter.models.FavoriteArticle
 
 @Database(entities = [FavoriteArticle::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

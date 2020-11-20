@@ -15,13 +15,10 @@ class AboutUsFragment : Fragment() {
     private lateinit var listViewLibraries: ListView
     private lateinit var listViewFeatures: ListView
 
-
-
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.about_us_fragment, container, false)
 
@@ -35,18 +32,30 @@ class AboutUsFragment : Fragment() {
         memberList.add("Nicolas TAMANINI")
 
         val librariesList: MutableList<String> = ArrayList()
-        librariesList.add("À compléter")
+        librariesList.add("com.github.bumptech.glide:glide:4.11.0")
+        librariesList.add("com.squareup.retrofit2:retrofit:2.6.0")
+        librariesList.add("com.google.code.gson:gson:2.8.5")
+        librariesList.add("com.squareup.retrofit2:converter-gson:2.4.0")
+        librariesList.add("com.squareup.okhttp3:logging-interceptor:4.2.1")
+        librariesList.add("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7")
+        librariesList.add("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7")
+        librariesList.add("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
+        librariesList.add("androidx.lifecycle:lifecycle-extensions:2.2.0")
+        librariesList.add("androidx.lifecycle:lifecycle-common-java8:2.2.0")
+        librariesList.add("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+        librariesList.add("androidx.room:room-runtime:2.2.5")
+        librariesList.add("androidx.room:room-ktx:2.2.5")
 
         val featuresList: MutableList<String> = ArrayList()
-        featuresList.add("À compléter")
+        featuresList.add("à compléter")
 
 
         listViewMembers = view.findViewById(R.id.list_view_members)
         val membersAdapter = activity?.let {
             ArrayAdapter<String>(
-                it,
-                android.R.layout.simple_list_item_1,
-                memberList
+                    it,
+                    android.R.layout.simple_list_item_1,
+                    memberList
             )
         }
         listViewMembers.adapter = membersAdapter
@@ -54,9 +63,9 @@ class AboutUsFragment : Fragment() {
         listViewLibraries = view.findViewById(R.id.list_view_libraries)
         val librariesAdapter = activity?.let {
             ArrayAdapter<String>(
-                it,
-                android.R.layout.simple_list_item_1,
-                librariesList
+                    it,
+                    android.R.layout.simple_list_item_1,
+                    librariesList
             )
         }
         listViewLibraries.adapter = librariesAdapter
@@ -64,14 +73,14 @@ class AboutUsFragment : Fragment() {
         listViewFeatures = view.findViewById(R.id.list_view_features)
         val featuresAdapter = activity?.let {
             ArrayAdapter<String>(
-                it,
-                android.R.layout.simple_list_item_1,
-                featuresList
+                    it,
+                    android.R.layout.simple_list_item_1,
+                    featuresList
             )
         }
         listViewFeatures.adapter = featuresAdapter
 
         return view
     }
-    }
+}
 
