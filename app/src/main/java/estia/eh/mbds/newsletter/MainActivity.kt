@@ -21,15 +21,9 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
 
-        changeFragment(PageAccueilFragment())
         showFragment(PageAccueilFragment())
     }
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container, fragment)
-            addToBackStack(null)
-        }.commit()
-    }
+
     override fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
@@ -58,10 +52,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
             }
             R.id.list_favoris->{
                 showFragment(ListFavoritesFragment())
-                true
-            }
-            R.id.list_article->{
-                showFragment(ListArticlesFragment())
                 true
             }
         }
