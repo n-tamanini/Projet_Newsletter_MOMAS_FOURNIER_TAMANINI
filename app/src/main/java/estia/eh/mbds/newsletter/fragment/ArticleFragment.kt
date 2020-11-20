@@ -18,7 +18,6 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class ArticleFragment(article: Article) : Fragment() {
 
     private lateinit var mArticleUrlToImage: ImageView
@@ -27,15 +26,15 @@ class ArticleFragment(article: Article) : Fragment() {
     private lateinit var mArticleDescription: TextView
     private lateinit var mArticlePublishedAt: TextView
     private lateinit var mArticleLink: TextView
-    private var mArticle : Article = article
+    private var mArticle: Article = article
 
     private val DATE_FORMATISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     private val isoFormat = SimpleDateFormat(DATE_FORMATISO)
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.article_fragment, container, false)
 
@@ -55,13 +54,13 @@ class ArticleFragment(article: Article) : Fragment() {
         mArticleAuthor.text = mArticle.author
         mArticleLink.text = mArticle.url
 
-        mArticleLink.setMovementMethod(LinkMovementMethod.getInstance());
+        mArticleLink.setMovementMethod(LinkMovementMethod.getInstance())
 
         val isoDate: Date = isoFormat.parse(mArticle.publishedAt)
         val date = DateFormat.getDateInstance(DateFormat.LONG).format(isoDate)
         mArticlePublishedAt.text = date
 
-        val context : Context = mArticleUrlToImage.context
+        val context: Context = mArticleUrlToImage.context
         Glide.with(context) //follow lifecycle
                 .load(mArticle.urlToImage)
                 .apply(RequestOptions.fitCenterTransform())

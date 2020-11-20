@@ -63,10 +63,6 @@ class ListArticlesAdapter(
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
 
-        holder.itemView.setOnClickListener {
-            listenerArticle(article)
-        }
-
         if (mListFavoriteArticlesTitle.contains(article.title)) {
             ArticleRepository.getInstance().updateFavoriteStatus(article, true)
             holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
@@ -91,6 +87,10 @@ class ListArticlesAdapter(
                     }
                 }
             }
+        }
+
+        holder.itemView.setOnClickListener {
+            listenerArticle(article)
         }
 
     }
