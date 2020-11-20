@@ -97,8 +97,8 @@ class ListArticlesAdapter(
 
     private fun insertArticleToFavorites(article: Article) {
 
-        val sourceId = article.source.id
-        val sourceName = article.source.name
+        val sourceId = article.source?.id
+        val sourceName = article.source?.name
         val author = article.author
         val title = article.title
         val description = article.description

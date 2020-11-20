@@ -76,7 +76,12 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
      */
     private fun bindData(articles: List<Article>) {
         lifecycleScope.launch(Dispatchers.Main) {
-            val adapter = ListArticlesAdapter(articles, this@ListArticlesFragment,this@ListArticlesFragment,mListFavoriteArticlesTitle) {article ->
+            val adapter = ListArticlesAdapter(
+                    articles,
+                    this@ListArticlesFragment,
+                    this@ListArticlesFragment,
+                    mListFavoriteArticlesTitle
+            ) {article ->
                 requireFragmentManager().beginTransaction().apply {
                 replace(R.id.fragment_container, ArticleFragment(article))
                 addToBackStack(null)

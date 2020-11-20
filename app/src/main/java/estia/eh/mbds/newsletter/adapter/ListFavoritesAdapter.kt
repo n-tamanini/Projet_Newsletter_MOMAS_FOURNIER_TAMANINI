@@ -14,12 +14,17 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import estia.eh.mbds.newsletter.R
 import estia.eh.mbds.newsletter.data.service.DeleteFavoriteArticleService
+import estia.eh.mbds.newsletter.models.Article
+import estia.eh.mbds.newsletter.models.Source
 import estia.eh.mbds.newsletter.models.FavoriteArticle
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ListFavoritesAdapter(deleteFavoriteArticleService: DeleteFavoriteArticleService) : RecyclerView.Adapter<ListFavoritesAdapter.ViewHolder>() {
+class ListFavoritesAdapter(
+        deleteFavoriteArticleService: DeleteFavoriteArticleService,
+        private val listenerArticle: (Article) -> Unit
+) : RecyclerView.Adapter<ListFavoritesAdapter.ViewHolder>() {
 
     private val DATE_FORMAT_ISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     private val isoFormat = SimpleDateFormat(DATE_FORMAT_ISO)
@@ -31,7 +36,6 @@ class ListFavoritesAdapter(deleteFavoriteArticleService: DeleteFavoriteArticleSe
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.favorite_article_item, parent, false))
     }
-
 
     override fun getItemCount(): Int {
         return mFavoriteArticles.size
@@ -73,6 +77,25 @@ class ListFavoritesAdapter(deleteFavoriteArticleService: DeleteFavoriteArticleSe
 
             val alertDialog: AlertDialog = alert.create()
             alertDialog.show()
+        }
+
+        val source: Source = Source(
+                id=favoriteArticle.sourceId,
+                name=favoriteArticle.sourceName
+        )
+        val article: Article = Article(
+                source= source,
+                author= favoriteArticle.author,
+                title= favoriteArticle.title!!,
+                description= favoriteArticle.description,
+                url= favoriteArticle.url,
+                urlToImage= favoriteArticle.urlToImage,
+                publishedAt= favoriteArticle.publishedAt,
+                content= favoriteArticle.content,
+                isFavorite= true,
+        )
+        holder.itemView.setOnClickListener {
+            listenerArticle(article)
         }
 
     }

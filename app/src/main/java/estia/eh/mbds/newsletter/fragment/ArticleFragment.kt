@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import estia.eh.mbds.newsletter.NavigationListener
@@ -32,8 +31,6 @@ class ArticleFragment(article: Article) : Fragment() {
 
     private val DATE_FORMATISO: String = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     private val isoFormat = SimpleDateFormat(DATE_FORMATISO)
-
-    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,8 +73,5 @@ class ArticleFragment(article: Article) : Fragment() {
 
         return view
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-    }
 }
