@@ -47,7 +47,15 @@ class AboutUsFragment : Fragment() {
         librariesList.add("androidx.room:room-ktx:2.2.5")
 
         val featuresList: MutableList<String> = ArrayList()
-        featuresList.add("à compléter")
+        featuresList.add("Afficher la page d'accueil")
+        featuresList.add("Filtrer le type d'articles que l'on souhaite")
+        featuresList.add("Afficher la liste des articles")
+        featuresList.add("Agrandir un article pour afficher les détails")
+        featuresList.add("Ajouter un article dans la liste des articles favoris")
+        featuresList.add("Supprimer un article de la liste des articles favoris")
+        featuresList.add("Afficher la liste des articles favoris")
+        featuresList.add("Afficher la page 'A propos de nous'")
+
 
 
         listViewMembers = view.findViewById(R.id.list_view_members)
@@ -82,5 +90,6 @@ class AboutUsFragment : Fragment() {
 
         return view
     }
+
 }
 
