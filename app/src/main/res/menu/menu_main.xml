@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/about_us"
+        android:icon="@drawable/ic_baseline_wc_24"
+        android:title="about_us"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/list_favoris"
+        android:icon="@drawable/ic_baseline_local_activity_24"
+        android:title="list_favoris"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/return_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="return_home"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>
+
+

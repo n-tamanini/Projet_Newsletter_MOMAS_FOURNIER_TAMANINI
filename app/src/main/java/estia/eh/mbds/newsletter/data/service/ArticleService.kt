@@ -10,8 +10,8 @@ interface ArticleService {
         fun getArticles(): List<Article>
 
         /**
-         * Update "Favorite status" of an existing Neighbour"
-         * @param neighbor: Neighbor
+         * Update "Favorite status" of an existing Article"
+         * @param article: Article
          */
         //fun updateFavoriteStatus(article: Article)
 
