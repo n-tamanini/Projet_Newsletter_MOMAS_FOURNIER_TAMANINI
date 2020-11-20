@@ -15,36 +15,48 @@
     <string name="date_article">Daté du : </string>
     //Filtres
     <string-array name="country_arrays">
-        <item>ae</item>
-        <item>ar</item>
-        <item>at</item>
-        <item>au</item>
-        <item>be</item>
-        <item>br</item>
-        <item>ca</item>
-        <item>ch</item>
-        <item>cn</item>
-        <item>co</item>
-        <item>cu</item>
-        <item>cz</item>
-        <item>de</item>
-        <item>eg</item>
         <item>fr</item>
+        <item>be</item>
+        <item>ch</item>
+        <item>es</item>
         <item>gb</item>
-        <item>gr</item>
-        <item>hk</item>
-        <item>hu</item>
         <item>us</item>
+        <item>de</item>
+        <item>it</item>
+        <item>ru</item>
+        <item>ca</item>
+    </string-array>
+
+    <string-array name="country_arrays_pretty">
+        <item>France</item>
+        <item>Belgique</item>
+        <item>Suisse</item>
+        <item>Espagne</item>
+        <item>Royaume-Uni</item>
+        <item>Etats-Unis</item>
+        <item>Allemagne</item>
+        <item>Italie</item>
+        <item>Russie</item>
+        <item>Canada</item>
     </string-array>
 
     <string-array name="category_arrays">
-        <item>entertainment</item>
         <item>general</item>
-        <item>health</item>
+        <item>entertainment</item>
         <item>science</item>
         <item>technology</item>
-
+        <item>health</item>
     </string-array>
+
+    <string-array name="category_arrays_pretty">
+        <item>Toutes</item>
+        <item>Divertissement</item>
+        <item>Science</item>
+        <item>Technologie</item>
+        <item>Santé</item>
+    </string-array>
+
+
     <string name="toolbar_name_list_articles">Liste des articles</string>
     <string name="toolbar_name_list_favorite_articles">Favoris</string>
     <string name="toolbar_name_page_accueil">Accueil</string>
