@@ -15,26 +15,25 @@
     <string name="date_article">Daté du: </string>
 	//Filtres
     <string-array name="country_arrays">
-        <item>Pays</item>
-        <item>France</item>
-        <item>Chine</item>
-        <item>Etats Unis</item>
-        <item>Angleterre</item>
-        <item>Italie</item>
-        <item>Sri Lanka</item>
-        <item>Australie</item>
-        <item>Inde</item>
+        <item>us</item>
+        <item>ar</item>
+        <item>at</item>
+        <item>au</item>
+        <item>be</item>
+        <item>fr</item>
+        <item>jp</item>
+        <item>ru</item>
     </string-array>
+
     <string-array name="category_arrays">
-        <item>Categories</item>
-        <item>Business</item>
-        <item>Spectacle</item>
-        <item>Géneral</item>
-        <item>Santé</item>
-        <item>Science</item>
-        <item>Sport</item>
-        <item>Technologie</item>
+        <item>entertainment</item>
+        <item>general</item>
+        <item>health</item>
+        <item>science</item>
+        <item>technology</item>
+
     </string-array>
     <string name="toolbar_name_list_articles">Liste des articles</string>
     <string name="toolbar_name_list_favorite_articles">Favoris</string>
+    <string name="toolbar_name_page_accueil">Page d\'accueil</string>
 </resources>
