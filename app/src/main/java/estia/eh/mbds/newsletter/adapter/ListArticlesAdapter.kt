@@ -1,7 +1,6 @@
 package estia.eh.mbds.newsletter.adapter
 
 import android.content.Context
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -97,7 +96,8 @@ class ListArticlesAdapter(
 
     }
 
-    override fun getItemCount(): Int { //Returns the total number of items in the data set held by the adapter.
+    override fun getItemCount(): Int {
+        //Returns the total number of items in the data set held by the adapter.
         return mArticles.size
     }
 
@@ -129,7 +129,8 @@ class ListArticlesAdapter(
     }
 
 
-    class ViewHolder(view: View) : //décrit la vue et métadata des item dans le recycleView
+    class ViewHolder(view: View) :
+    //décrit la vue et les métadata des items dans le recycleView
             RecyclerView.ViewHolder(view) {
         val mArticleUrlToImage: ImageView
         val mArticleAuthor: TextView

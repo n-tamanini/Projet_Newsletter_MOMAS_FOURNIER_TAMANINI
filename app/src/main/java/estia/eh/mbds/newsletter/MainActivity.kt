@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.fragment.AboutUsFragment
-import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 import estia.eh.mbds.newsletter.fragment.ListFavoritesFragment
 import estia.eh.mbds.newsletter.fragment.PageAccueilFragment
 
@@ -24,15 +23,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
 
         showFragment(PageAccueilFragment())
     }
-
-
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container, fragment)
-            addToBackStack(null)
-        }.commit()
-    }
-
 
     // Fonction permettant de définir quel est le fragment au démarrage de l'application
     override fun showFragment(fragment: Fragment) {
@@ -67,10 +57,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
             }
             R.id.list_favoris -> {
                 showFragment(ListFavoritesFragment())
-                true
-            }
-            R.id.list_article -> {
-                showFragment(ListArticlesFragment())
                 true
             }
         }
