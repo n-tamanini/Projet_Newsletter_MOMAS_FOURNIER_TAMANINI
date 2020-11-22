@@ -4,6 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import estia.eh.mbds.newsletter.models.FavoriteArticle
 
+// L'architecture de la base de données Room provient de cette
+// série de tutos : https://www.youtube.com/playlist?list=PLSrm9z4zp4mEPOfZNV9O-crOhoMa0G2-o
+// (Vidéos #1 à #5)
+
 @Dao
 interface FavoriteArticleDAO {
     @Query("SELECT * FROM favoriteArticle ORDER BY id DESC")

@@ -9,6 +9,10 @@ import estia.eh.mbds.newsletter.models.FavoriteArticle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+// L'architecture de la base de données Room provient de cette
+// série de tutos : https://www.youtube.com/playlist?list=PLSrm9z4zp4mEPOfZNV9O-crOhoMa0G2-o
+// (Vidéos #1 à #5)
+
 class FavoriteArticleViewModel(application: Application) : AndroidViewModel(application) {
 
     val getAllFavoriteArticles: LiveData<List<FavoriteArticle>>
