@@ -26,11 +26,13 @@ class AboutUsFragment : Fragment() {
             it.updateTitle(R.string.about_us_toolbar_name)
         }
 
+        // liste des membres du groupe
         val memberList: MutableList<String> = ArrayList()
         memberList.add("Lisa MOMAS")
         memberList.add("Alphonse FOURNIER")
         memberList.add("Nicolas TAMANINI")
 
+        // liste des librairies utilisées
         val librariesList: MutableList<String> = ArrayList()
         librariesList.add("com.github.bumptech.glide:glide:4.11.0")
         librariesList.add("com.squareup.retrofit2:retrofit:2.6.0")
@@ -46,6 +48,7 @@ class AboutUsFragment : Fragment() {
         librariesList.add("androidx.room:room-runtime:2.2.5")
         librariesList.add("androidx.room:room-ktx:2.2.5")
 
+        // liste des fonctionnalités
         val featuresList: MutableList<String> = ArrayList()
         featuresList.add("Afficher la page d'accueil")
         featuresList.add("Filtrer le type d'articles que l'on souhaite lire (Pays, catégories)")
