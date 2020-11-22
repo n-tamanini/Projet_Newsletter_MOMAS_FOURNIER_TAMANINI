@@ -63,6 +63,10 @@ class ListArticlesAdapter(
                 .skipMemoryCache(false)
                 .into(holder.mArticleUrlToImage)
 
+        // Pour déterminer si les articles retournés par l'API ont été mis en favoris précédemment,
+        // on récupère une liste contenant le titre de tous les articles mis en favoris depuis la base de données
+        // puis on compare le titre des articles provenant de l'api avec le contenu de la liste
+
         if (mListFavoriteArticlesTitle.contains(article.title)) {
             ArticleRepository.getInstance().updateFavoriteStatus(article, true)
             holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
@@ -80,7 +84,11 @@ class ListArticlesAdapter(
             } else {
                 ArticleRepository.getInstance().updateFavoriteStatus(article, false)
                 holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_empty_24)
+
+                // Pour supprimer un article de la base de données des favoris depuis la vue "Liste des articles",
+                // on cherche l'article ayant le même titre que celui qui est affiché et on le supprime de la base de données
                 mDeleteFavoriteArticleByTitleService.deleteFavoriteArticleByTitle(article.title)
+
                 for (i in 0 until mListFavoriteArticlesTitle.size) {
                     if (mListFavoriteArticlesTitle[i] == article.title) {
                         mListFavoriteArticlesTitle.removeAt(i)

@@ -71,9 +71,10 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
             mCategory = category
             println("mCategory : $mCategory")
         } else {
-            // Valeurs par défaut. Normalement, il est impossible que country ou category soient nuls
+            // Valeurs par défaut. Normalement, il est impossible que country ou category
+            // que l'on récupère dans "arguments" soient nuls
             mCountry = "fr"
-            mCategory = "sports"
+            mCategory = "general"
         }
 
         getArticlesByCountryAndCategory(mCountry, mCategory)

@@ -92,6 +92,9 @@ class ArticleFragment(article: Article) : Fragment() {
             } else {
                 ArticleRepository.getInstance().updateFavoriteStatus(mArticle, false)
                 mFavoriteButton.setImageResource(R.drawable.ic_baseline_favorite_empty_24)
+
+                // Pour supprimer un article de la base de données des favoris depuis la vue "Article",
+                // on cherche l'article ayant le même titre que celui qui est affiché et on le supprime de la base de données
                 mFavoriteArticleViewModel.deleteFavoriteByArticleTitle(mArticle.title)
             }
         }
