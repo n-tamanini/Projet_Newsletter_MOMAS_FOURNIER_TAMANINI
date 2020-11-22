@@ -98,7 +98,7 @@ class ListArticlesAdapter(
                 }
             }
         }
-        //Gestion du clique sur un article)
+        //Gestion du clique sur un article
         holder.itemView.setOnClickListener {
             listenerArticle(article)
         }
