@@ -64,4 +64,6 @@
     <string name="find_articles">Rechercher des articles</string>
     <string name="select_country">Sélectionnez un pays</string>
     <string name="select_category">Sélectionnez une catégorie</string>
+    <string name="added_to_favorites">Article ajouté dans les favoris</string>
+    <string name="removed_from_favorites">Article retiré des favoris</string>
 </resources>

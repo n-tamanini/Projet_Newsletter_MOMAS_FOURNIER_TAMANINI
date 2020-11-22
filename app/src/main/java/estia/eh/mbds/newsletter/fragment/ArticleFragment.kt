@@ -6,6 +6,7 @@ import android.text.method.LinkMovementMethod
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -89,6 +90,7 @@ class ArticleFragment(article: Article) : Fragment() {
                 ArticleRepository.getInstance().updateFavoriteStatus(mArticle, true)
                 mFavoriteButton.setImageResource(R.drawable.ic_baseline_favorite_filled_24)
                 insertArticleToFavorites(mArticle)
+                Toast.makeText(requireContext(), R.string.added_to_favorites, Toast.LENGTH_SHORT).show()
             } else {
                 ArticleRepository.getInstance().updateFavoriteStatus(mArticle, false)
                 mFavoriteButton.setImageResource(R.drawable.ic_baseline_favorite_empty_24)
@@ -96,6 +98,7 @@ class ArticleFragment(article: Article) : Fragment() {
                 // Pour supprimer un article de la base de données des favoris depuis la vue "Article",
                 // on cherche l'article ayant le même titre que celui qui est affiché et on le supprime de la base de données
                 mFavoriteArticleViewModel.deleteFavoriteByArticleTitle(mArticle.title)
+                Toast.makeText(requireContext(), R.string.removed_from_favorites, Toast.LENGTH_SHORT).show()
             }
         }
 

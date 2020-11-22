@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -69,6 +70,7 @@ class ListFavoritesAdapter(
                     // positive button text and action
                     .setPositiveButton(R.string.yes, DialogInterface.OnClickListener { _, _ ->
                         mDeleteFavoriteArticleService.onDeleteFavoriteButtonClick(favoriteArticle)
+                        Toast.makeText(context, R.string.removed_from_favorites, Toast.LENGTH_SHORT).show()
                     })
                     // negative button text and action
                     .setNegativeButton(R.string.no, DialogInterface.OnClickListener { dialog, _ ->

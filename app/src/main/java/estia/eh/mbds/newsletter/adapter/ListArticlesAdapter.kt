@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -81,6 +82,8 @@ class ListArticlesAdapter(
                 holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_filled_24)
                 mListFavoriteArticlesTitle.add(article.title)
                 insertArticleToFavorites(article)
+                Toast.makeText(context, R.string.added_to_favorites, Toast.LENGTH_SHORT).show()
+
             } else {
                 ArticleRepository.getInstance().updateFavoriteStatus(article, false)
                 holder.mFavoriteButton.setBackgroundResource(R.drawable.ic_baseline_favorite_empty_24)
@@ -94,6 +97,7 @@ class ListArticlesAdapter(
                         mListFavoriteArticlesTitle.removeAt(i)
                     }
                 }
+                Toast.makeText(context, R.string.removed_from_favorites, Toast.LENGTH_SHORT).show()
             }
         }
 
