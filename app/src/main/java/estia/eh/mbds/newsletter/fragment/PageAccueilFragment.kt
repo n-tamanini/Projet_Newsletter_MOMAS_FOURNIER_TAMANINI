@@ -16,7 +16,6 @@ class PageAccueilFragment : Fragment() {
 
     private lateinit var spinnerCategories: Spinner
     private lateinit var spinnerCountries: Spinner
-
     private lateinit var searchButton: Button
 
     override fun onCreateView(
@@ -25,7 +24,9 @@ class PageAccueilFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.page_accueil_fragment, container, false)
-
+        searchButton = view.findViewById(R.id.find_articles_btn)
+        spinnerCategories = view.findViewById(R.id.spinner_category)
+        spinnerCountries = view.findViewById(R.id.spinner_country)
         (activity as? NavigationListener)?.let {
             it.updateTitle(R.string.toolbar_name_page_accueil)
         }

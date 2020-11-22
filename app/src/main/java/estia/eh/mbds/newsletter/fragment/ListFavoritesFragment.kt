@@ -7,19 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import estia.eh.mbds.newsletter.NavigationListener
 import estia.eh.mbds.newsletter.R
-import estia.eh.mbds.newsletter.adapter.ListArticlesAdapter
 import estia.eh.mbds.newsletter.adapter.ListFavoritesAdapter
 import estia.eh.mbds.newsletter.models.FavoriteArticle
 import estia.eh.mbds.newsletter.data.database.FavoriteArticleViewModel
 import estia.eh.mbds.newsletter.data.service.DeleteFavoriteArticleService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+
 
 class ListFavoritesFragment : Fragment(), DeleteFavoriteArticleService {
 

@@ -80,14 +80,6 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
         getArticlesByCountryAndCategory(mCountry, mCategory)
     }
 
-
-    private fun getArticlesByCountry(country: String) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val articles = ArticleRepository.getInstance().getArticlesByCountry(country)
-            bindData(articles)
-        }
-    }
-
     private fun getArticlesByCountryAndCategory(country: String, category: String) {
         lifecycleScope.launch(Dispatchers.IO) {
             val articles = ArticleRepository.getInstance().getArticlesByCountryAndCategory(country,category)
