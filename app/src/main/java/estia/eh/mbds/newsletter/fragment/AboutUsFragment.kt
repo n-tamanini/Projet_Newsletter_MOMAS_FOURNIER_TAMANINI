@@ -48,7 +48,7 @@ class AboutUsFragment : Fragment() {
 
         val featuresList: MutableList<String> = ArrayList()
         featuresList.add("Afficher la page d'accueil")
-        featuresList.add("Filtrer le type d'articles que l'on souhaite")
+        featuresList.add("Filtrer le type d'articles que l'on souhaite lire (Pays, catégories)")
         featuresList.add("Afficher la liste des articles")
         featuresList.add("Agrandir un article pour afficher les détails")
         featuresList.add("Ajouter un article dans la liste des articles favoris")

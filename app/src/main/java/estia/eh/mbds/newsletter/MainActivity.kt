@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         showFragment(PageAccueilFragment())
     }
 
+
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationListener {
     }
 
 
+    // Fonction permettant de définir quel est le fragment au démarrage de l'application
     override fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         }.commit()
     }
 
+    // Fonction pour update le titre selon le fragment
     override fun updateTitle(title: Int) {
         toolbar.setTitle(title)
     }
@@ -50,6 +53,8 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         return true
     }
 
+
+    // Fonction pour gérer la navigation avec les items du menu_main
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.return_home -> {
