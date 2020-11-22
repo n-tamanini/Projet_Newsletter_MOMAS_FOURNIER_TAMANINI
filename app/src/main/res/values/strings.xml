@@ -15,14 +15,26 @@
     <string name="date_article">Daté du : </string>
     //Filtres
     <string-array name="country_arrays">
-        <item>us</item>
+        <item>ae</item>
         <item>ar</item>
         <item>at</item>
         <item>au</item>
         <item>be</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>ch</item>
+        <item>cn</item>
+        <item>co</item>
+        <item>cu</item>
+        <item>cz</item>
+        <item>de</item>
+        <item>eg</item>
         <item>fr</item>
-        <item>jp</item>
-        <item>ru</item>
+        <item>gb</item>
+        <item>gr</item>
+        <item>hk</item>
+        <item>hu</item>
+        <item>us</item>
     </string-array>
 
     <string-array name="category_arrays">
