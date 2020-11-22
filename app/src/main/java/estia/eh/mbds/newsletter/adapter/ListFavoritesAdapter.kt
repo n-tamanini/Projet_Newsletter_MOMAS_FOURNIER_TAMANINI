@@ -30,15 +30,10 @@ class ListFavoritesAdapter(
     private val isoFormat = SimpleDateFormat(DATE_FORMAT_ISO)
 
     private var mFavoriteArticles = emptyList<FavoriteArticle>()
-
     private val mDeleteFavoriteArticleService = deleteFavoriteArticleService
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.favorite_article_item, parent, false))
-    }
-
-    override fun getItemCount(): Int {
-        return mFavoriteArticles.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -100,11 +95,14 @@ class ListFavoritesAdapter(
 
     }
 
+    override fun getItemCount(): Int {
+        return mFavoriteArticles.size
+    }
+
     fun setData(favoriteArticles: List<FavoriteArticle>) {
         this.mFavoriteArticles = favoriteArticles
         notifyDataSetChanged()
     }
-
 
     class ViewHolder(view: View) :
             RecyclerView.ViewHolder(view) {

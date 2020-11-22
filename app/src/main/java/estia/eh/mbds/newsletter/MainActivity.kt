@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import estia.eh.mbds.newsletter.fragment.AboutUsFragment
-import estia.eh.mbds.newsletter.fragment.ListArticlesFragment
 import estia.eh.mbds.newsletter.fragment.ListFavoritesFragment
 import estia.eh.mbds.newsletter.fragment.PageAccueilFragment
 
 private lateinit var toolbar: Toolbar
+
 
 class MainActivity : AppCompatActivity(), NavigationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,18 +43,19 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         return true
     }
 
+
     // Fonction pour gérer la navigation avec les items du menu_main
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.return_home->{
+        when (item.itemId) {
+            R.id.return_home -> {
                 showFragment(PageAccueilFragment())
                 true
             }
-            R.id.about_us->{
+            R.id.about_us -> {
                 showFragment(AboutUsFragment())
                 true
             }
-            R.id.list_favoris->{
+            R.id.list_favoris -> {
                 showFragment(ListFavoritesFragment())
                 true
             }
