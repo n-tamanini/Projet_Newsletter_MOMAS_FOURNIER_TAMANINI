@@ -23,10 +23,13 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
     private lateinit var recyclerView: RecyclerView
     private lateinit var mFavoriteArticleViewModel: FavoriteArticleViewModel
     private var mListFavoriteArticlesTitle: MutableList<String> = mutableListOf<String>()
+    private lateinit var mCountry: String
+    private lateinit var mCategory: String
 
     /**
      * Fonction permettant de définir une vue à attacher à un fragment
      */
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -56,13 +59,24 @@ class ListArticlesFragment : Fragment(), InsertFavoriteArticleService, DeleteFav
         return view
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Faudra changer tout ça : faut initialiser les articles avec les paramètres rentrés dans page d'accueil
-        //(remplacer le "fr" et "sports" par les paramètres rentrés)
-        getArticlesByCountryAndCategory("fr", "sports")
+        val country: String? = arguments?.getString("country")
+        val category: String? = arguments?.getString("category")
+
+        if (country != null && category != null){
+            mCountry = country
+            println("mCountry : $mCountry")
+            mCategory = category
+            println("mCategory : $mCategory")
+        } else {
+            // Valeurs par défaut. Normalement, il est impossible que country ou category soient nuls
+            mCountry = "fr"
+            mCategory = "sports"
+        }
+
+        getArticlesByCountryAndCategory(mCountry, mCategory)
     }
 
 

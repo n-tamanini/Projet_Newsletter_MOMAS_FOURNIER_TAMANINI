@@ -31,6 +31,9 @@ class PageAccueilFragment : Fragment() {
             it.updateTitle(R.string.toolbar_name_page_accueil)
         }
 
+        val countriesPretty = resources.getStringArray(R.array.country_arrays_pretty)
+        val categoriesPretty = resources.getStringArray(R.array.category_arrays_pretty)
+
         val countries = resources.getStringArray(R.array.country_arrays)
         val categories = resources.getStringArray(R.array.category_arrays)
 
@@ -42,7 +45,7 @@ class PageAccueilFragment : Fragment() {
             val adapterCategories = ArrayAdapter(
                     requireContext(),
                     android.R.layout.simple_spinner_item,
-                    categories
+                    categoriesPretty
             )
             spinnerCategories.adapter = adapterCategories
 
@@ -67,7 +70,7 @@ class PageAccueilFragment : Fragment() {
             val adapterCountries = ArrayAdapter(
                     requireContext(),
                     android.R.layout.simple_spinner_item,
-                    countries
+                    countriesPretty
             )
             spinnerCountries.adapter = adapterCountries
 
@@ -88,13 +91,17 @@ class PageAccueilFragment : Fragment() {
         }
 
         searchButton = view.findViewById(R.id.find_articles_btn)
-        searchButton.setOnClickListener{
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.fragment_container, ListArticlesFragment())
-            transaction?.commit()
-
+        searchButton.setOnClickListener {
+            val listArticlesFragment = ListArticlesFragment()
+            val bundle = Bundle()
+            bundle.putString("country", currentCountry)
+            bundle.putString("category", currentCategory)
+            listArticlesFragment.arguments = bundle
+            activity?.supportFragmentManager?.beginTransaction()?.apply {
+                replace(R.id.fragment_container, listArticlesFragment)
+                addToBackStack(null)
+            }?.commit()
         }
-
 
         return view
     }

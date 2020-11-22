@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item
+        android:id="@+id/return_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Page d'accueil"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/list_favoris"
@@ -11,25 +16,10 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/list_article"
-        android:icon="@drawable/ic_baseline_article_24"
-        android:title="Liste des articles"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/about_us"
         android:icon="@drawable/ic_baseline_wc_24"
         android:title="A propos de nous"
         app:showAsAction="ifRoom"/>
-
-
-
-    <item
-        android:id="@+id/return_home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Page d'accueil"
-        app:showAsAction="ifRoom"/>
-
 
 </menu>
 

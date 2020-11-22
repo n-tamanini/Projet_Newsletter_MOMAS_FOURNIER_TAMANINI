@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
         toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
 
-        changeFragment(PageAccueilFragment())
         showFragment(PageAccueilFragment())
     }
 
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity(), NavigationListener {
             addToBackStack(null)
         }.commit()
     }
+
 
     override fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
