@@ -39,6 +39,8 @@ class PageAccueilFragment : Fragment() {
         var currentCategory = categories[0]
         var currentCountry = countries[0]
 
+        // gestion des spinners et du bouton
+
         spinnerCategories = view.findViewById(R.id.spinner_category)
         if (spinnerCategories != null) {
             val adapterCategories = ArrayAdapter(

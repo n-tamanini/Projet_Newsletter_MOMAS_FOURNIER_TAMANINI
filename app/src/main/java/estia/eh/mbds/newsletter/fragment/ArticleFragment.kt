@@ -77,7 +77,7 @@ class ArticleFragment(article: Article) : Fragment() {
                 .skipMemoryCache(false)
                 .into(mArticleUrlToImage)
 
-
+        // Gestion modification du bouton après ajout
         if (mArticle.isFavorite) {
             mFavoriteButton.setImageResource(R.drawable.ic_baseline_favorite_filled_24)
         } else {
@@ -99,6 +99,7 @@ class ArticleFragment(article: Article) : Fragment() {
         return view
     }
 
+    // Ajout des articles à la liste des favoris
     private fun insertArticleToFavorites(article: Article) {
 
         val sourceId = article.source?.id
