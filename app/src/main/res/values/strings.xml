@@ -44,6 +44,7 @@
     <string-array name="category_arrays_pretty">
         <item>Toutes</item>
         <item>Divertissement</item>
+        <item>Sport</item>
         <item>Science</item>
         <item>Technologie</item>
         <item>Santé</item>
@@ -52,6 +53,7 @@
     <string-array name="category_arrays">
         <item>general</item>
         <item>entertainment</item>
+        <item>sports</item>
         <item>science</item>
         <item>technology</item>
         <item>health</item>
